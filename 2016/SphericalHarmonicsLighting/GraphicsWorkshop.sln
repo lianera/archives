@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "framework", "framework\framework.vcxproj", "{E3B9A292-DD9D-45E6-BA41-5043352C7844}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "spherical-harmonics-lighting", "spherical-harmonics-lighting\spherical-harmonics-lighting.vcxproj", "{BF9BDFFB-FFA9-4FBB-AD2B-6EE249BC884E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CF71F4F9-E272-4B44-A462-2924B0AF1993}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "framework-test", "framework-test\framework-test.vcxproj", "{F20560A0-D892-4A78-9158-2EE745ECEEC4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sh_sampler", "sh_sampler\sh_sampler.vcxproj", "{870D2AD3-381C-407E-844B-B65D0353973E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3B9A292-DD9D-45E6-BA41-5043352C7844}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E3B9A292-DD9D-45E6-BA41-5043352C7844}.Debug|Win32.Build.0 = Debug|Win32
+		{E3B9A292-DD9D-45E6-BA41-5043352C7844}.Release|Win32.ActiveCfg = Release|Win32
+		{E3B9A292-DD9D-45E6-BA41-5043352C7844}.Release|Win32.Build.0 = Release|Win32
+		{BF9BDFFB-FFA9-4FBB-AD2B-6EE249BC884E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BF9BDFFB-FFA9-4FBB-AD2B-6EE249BC884E}.Debug|Win32.Build.0 = Debug|Win32
+		{BF9BDFFB-FFA9-4FBB-AD2B-6EE249BC884E}.Release|Win32.ActiveCfg = Release|Win32
+		{BF9BDFFB-FFA9-4FBB-AD2B-6EE249BC884E}.Release|Win32.Build.0 = Release|Win32
+		{F20560A0-D892-4A78-9158-2EE745ECEEC4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F20560A0-D892-4A78-9158-2EE745ECEEC4}.Debug|Win32.Build.0 = Debug|Win32
+		{F20560A0-D892-4A78-9158-2EE745ECEEC4}.Release|Win32.ActiveCfg = Release|Win32
+		{F20560A0-D892-4A78-9158-2EE745ECEEC4}.Release|Win32.Build.0 = Release|Win32
+		{870D2AD3-381C-407E-844B-B65D0353973E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{870D2AD3-381C-407E-844B-B65D0353973E}.Debug|Win32.Build.0 = Debug|Win32
+		{870D2AD3-381C-407E-844B-B65D0353973E}.Release|Win32.ActiveCfg = Release|Win32
+		{870D2AD3-381C-407E-844B-B65D0353973E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

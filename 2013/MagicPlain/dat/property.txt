@@ -1,0 +1,30 @@
+type		类型	character	人物
+				mainchar	主角
+				block		障碍物
+				prop		道具
+				bomb		炸弹
+				explosion	爆炸
+
+life		生命值				
+
+[动画]
+animation	动画	head	动画头
+next		动画下一帧（0表示结束）
+timegap		时间间隔（单位为帧）
+
+[炸弹]
+exptime		爆炸剩余时间
+power		火力
+
+[爆炸]
+lasttime	持续时间
+offsetx		战火位置X（相对）
+offsety		战火位置Y（相对）
+
+[人物]
+step		步幅
+strength	力量
+walkup
+walkdown
+walkleft
+walkright	人物各个面的动画（与本动画的偏移量）

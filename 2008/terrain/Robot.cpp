@@ -1,0 +1,27 @@
+// Robot.cpp: implementation of the CRobot class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "¶íÂÞË¹·½¿é.h"
+#include "Robot.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[]=__FILE__;
+#define new DEBUG_NEW
+#endif
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+CRobot::CRobot()
+{
+
+}
+
+CRobot::~CRobot()
+{
+
+}
