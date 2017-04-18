@@ -1,0 +1,263 @@
+# LtRay world file
+# this is comment
+# right hand coordinate system
+
+[tracer]	#essential
+# optional shader: phong(default), depth, normal, albedo, spherical_harmonics(provide sh_coefs)
+shader = "phong"
+# reflection or refraction recursion depth
+recursion =  5
+# Anti-alias level: 0-disable
+antialias =  2
+# spherical harmonics cofficients, for spherical_harmonics shader
+sh_coefs = [
+	[1.56259,1.61039,1.7086],
+	[0.174871,0.101074,0.0304531],
+	[0.165467,0.125138,0.071798],
+	[-0.0330407,-0.0199969,-0.00567965],
+	[0.026821,0.0196447,0.0112373],
+	[-0.127566,-0.106104,-0.0725154],
+	[0.202293,0.176939,0.125648],
+	[-0.0250606,-0.0170107,-0.00705552],
+	[0.218974,0.202079,0.154556]]
+
+[camera]	#essential
+position = 	[7,2,2]
+lookat = 	[2,2,2]
+up = 		[0,0,1]
+fov = 		60
+range = 	[0.1, 100]
+background = [0, 0, 0]
+orthographic = false
+film_size =  [640, 480]
+
+[scene]		#essential
+# declare lights
+lights = ["envlight", "l1", "lamplight"] 
+# declare objects
+objects = [
+	"Floor", "Ceiling", "LeftWall", "RightWall","BackWall",
+	"Lampshade","Mirror","Ring","Letter",
+	"Ball1","Ball2","GlassBall"]
+
+# definition of lights
+[light.envlight]
+# optional type: ambient_light(unique), direction_light, point_light, spot_light
+type = "ambient_light"
+color = [0.1, 0.1, 0.1]
+
+[light.l1]
+type = "point_light"
+color = [3, 3, 3]
+position = [2,2,3]		# position, rotate and scale are optional
+
+[light.lamplight]
+type = "spot_light"
+color = [1.3, 1.3, 1.2]
+maxangle = 45
+falloffangle = 20
+falloff = 2
+position = [0.4,0.4,1.5]
+rotate = [180,0,0]
+		
+[material.lambertian_white]
+ambient = 	[1, 1, 1]
+diffuse = 	[1, 1, 1]
+specular = 	[0, 0, 0]
+mirror = 	[0, 0, 0]
+phong_exp =  1
+
+[material.lambertian_red]
+ambient = 	[1, 0, 0]
+diffuse = 	[1, 0, 0]
+specular = 	[0, 0, 0]
+mirror = 	[0, 0, 0]
+phong_exp =  1
+
+[material.lambertian_green]
+ambient = 	[0, 1, 0]
+diffuse = 	[0, 1, 0]
+specular = 	[0, 0, 0]
+mirror = 	[0, 0, 0]
+phong_exp =  1
+
+[material.lampshade]
+ambient = 	[8, 8, 7]
+diffuse = 	[0.5, 0.5, 0.5]
+specular = 	[0, 0, 0]
+mirror = 	[0, 0, 0]
+phong_exp =  1
+
+[material.smooth]
+ambient = 	[1, 1, 1]
+diffuse = 	[0.8, 0.8, 0.8]
+specular = 	[0.5, 0.5, 0.5]
+mirror = 	[0.1, 0.1, 0.1]
+phong_exp =  1		
+
+[material.smooth_black]
+ambient = 	[0, 0, 0]
+diffuse = 	[0, 0, 0]
+specular = 	[0, 0, 0]
+mirror = 	[0.3, 0.3, 0.3]
+phong_exp =  1		
+
+[material.goden]
+ambient = 	[0.1,0.1,0.05]
+diffuse = 	[0.3,0.2,0.15]
+specular = 	[0.5,0.4,0.25]
+mirror = 	[0.7,0.6,0.45]
+phong_exp =  32	
+
+[material.mirror]
+ambient = 	[0, 0, 0]
+diffuse = 	[0.1, 0.1, 0.1]
+specular = 	[0, 0, 0]
+mirror = 	[1, 1, 1]
+phong_exp =  1
+
+[material.metal]
+ambient = 	[0, 0, 0]
+diffuse = 	[0.5, 0.5, 0.5]
+specular = 	[1, 1, 1]
+mirror = 	[0, 0, 0]
+phong_exp =  16
+
+[material.glass]
+ambient = 	[0, 0, 0]
+diffuse = 	[0, 0, 0]
+specular = 	[0, 0, 0]
+mirror = 	[1, 1, 1]
+refractive = true
+ior = 1.33
+attenuation = [0,0,0]
+phong_exp =  1
+
+[surface.wall]
+type =  "polygon"
+vertices = 	[[-2.001,-2.001,0],
+			[2.001,-2.001,0],
+			[2.001,2.001,0],
+			[-2.001,2.001,0]]
+
+[surface.lampshade]
+type = "cone"
+radius = 0.3
+height = 0.5
+zmax = 0.3
+
+[surface.disk]
+type = "disk"
+radius = 1
+
+[surface.ring]
+type = "disk"
+radius = 1
+inner_radius = 0.9			
+
+[surface.squre]
+type =  "polygon"
+vertices = 	[[-1,-1,0],
+			[1,-1,0],
+			[1,1,0],
+			[-1,1,0]]
+
+[surface.letter_t]
+type = "polygon"
+vertices = [
+	[1,-3,0],
+	[1,1,0],
+	[3,1,0],
+	[3,3,0],
+	[-3,3,0],
+	[-3,1,0],
+	[-1,1,0],
+	[-1,-3,0]]
+
+[surface.ball]
+type = "sphere"
+
+[object.Floor]
+surface = "wall"
+material = "smooth"
+position = [2,2,0]
+
+[object.Ceiling]
+surface = "wall"
+material = "lambertian_white"
+position = [2,2,4]
+rotate = [180,0,0]
+
+[object.LeftWall]
+surface = "wall"
+material = "lambertian_red"
+position = [2,0,2]
+rotate = [-90,0,0]
+
+[object.RightWall]
+surface = "wall"
+material = "metal"
+position = [2,4,2]
+rotate = [90,0,0]
+
+[object.BackWall]
+surface = "wall"
+material = "goden"
+position = [0,2,2]
+rotate = [0,90,0]
+
+[object.Lampshade]
+surface = "lampshade"
+material = "lampshade"
+position = [0.4,0.4,1.3]
+
+[object.Mirror]
+surface = "squre"
+material = "mirror"
+rotate = [90,0,0]
+position = [2.0,3.99,2.0]
+
+[object.Ring]
+surface = "ring"
+material = "metal"
+rotate = [0,90,0]
+position = [0.01,2,2]
+
+[object.Letter]
+surface = "letter_t"
+material = "metal"
+rotate = [90,-90,0]
+position = [0.01,2,1.9]
+scale = [0.2,0.2,0.2]
+
+[object.Ball1]
+surface = "ball"
+material = "mirror"
+position = [1.1,1.1,0.5]
+scale = [0.5,0.5,0.5]
+
+[object.Ball2]
+surface = "ball"
+material = "goden"
+position = [3.0,3.0,0.5]
+scale = [0.5,0.5,0.5]
+
+[object.GlassBall]
+surface = "ball"
+material = "glass"
+position = [3.0,1.5,2.5]
+scale = [0.5,0.5,0.5]
+
+[object.DielectricSquare1]
+surface = "wall"
+material = "glass"
+position = [2,2,2]
+rotate = [0,-49,0]
+scale = [0.3,0.3,0.3]
+
+[object.DielectricSquare2]
+surface = "wall"
+material = "glass"
+position = [2.5,2,1]
+rotate = [0,-90,0]
+scale = [0.3,0.3,0.3]

@@ -1,0 +1,47 @@
+# LtRay world file
+
+[tracer]
+shader = "phong"
+
+[camera]
+position = 	[0,0,5]
+lookat = 	[0,0,0]
+up = 		[0,1,0]
+fov = 		60
+range = 	[0.1, 100]
+background = [0, 0, 0]
+orthographic = false
+film_size =  [640, 480]
+
+[scene]
+lights = ["envlight", "point"] 
+objects = ["triangle"]
+
+[light.envlight]
+type = "ambient_light"
+color = [0.1, 0.1, 0.1]
+
+[light.point]
+type = "point_light"
+color = [2,2,2]
+position = [2,2,2]
+
+[material.lambertian_white]
+ambient = 	[1, 1, 1]
+diffuse = 	[1, 1, 1]
+specular = 	[0, 0, 0]
+mirror = 	[0, 0, 0]
+phong_exp =  1
+
+[surface.triangle]
+type = "triangle"
+p1 = [0,0,0]
+p2 = [0.5,0,0]
+p3 = [0,1,0]
+
+[object.triangle]
+surface = "triangle"
+material = "lambertian_white"
+position = [1,0,0]
+rotate = [0,0,90]
+scale = [1,1,1]

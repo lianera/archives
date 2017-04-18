@@ -1,9 +1,8 @@
 archives
 =====
 
-# List
-
 + 2016
+	* [LtRay光线跟踪器](2016/LtRay)
 	* [球谐光照](2016/SphericalHarmonicsLighting)
 + 2015
 	* [Sudoku](2015/sudoku)

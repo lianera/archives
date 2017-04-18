@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libltray", "libltray\libltray.vcxproj", "{0BF400DD-7CE4-4677-931B-D3480F9BC372}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libltray-test", "libltray-test\libltray-test.vcxproj", "{69E30099-E6FB-4366-8964-A3C5AC83CB1B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0BF400DD-7CE4-4677-931B-D3480F9BC372} = {0BF400DD-7CE4-4677-931B-D3480F9BC372}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ltray", "ltray\ltray.vcxproj", "{13B3DAB6-1F96-4D2A-AC3A-61BF9AE27A7A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{955A6B4A-8909-42BB-80A9-D3E86CAE3863}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0BF400DD-7CE4-4677-931B-D3480F9BC372}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0BF400DD-7CE4-4677-931B-D3480F9BC372}.Debug|Win32.Build.0 = Debug|Win32
+		{0BF400DD-7CE4-4677-931B-D3480F9BC372}.Release|Win32.ActiveCfg = Release|Win32
+		{0BF400DD-7CE4-4677-931B-D3480F9BC372}.Release|Win32.Build.0 = Release|Win32
+		{69E30099-E6FB-4366-8964-A3C5AC83CB1B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{69E30099-E6FB-4366-8964-A3C5AC83CB1B}.Debug|Win32.Build.0 = Debug|Win32
+		{69E30099-E6FB-4366-8964-A3C5AC83CB1B}.Release|Win32.ActiveCfg = Release|Win32
+		{69E30099-E6FB-4366-8964-A3C5AC83CB1B}.Release|Win32.Build.0 = Release|Win32
+		{13B3DAB6-1F96-4D2A-AC3A-61BF9AE27A7A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{13B3DAB6-1F96-4D2A-AC3A-61BF9AE27A7A}.Debug|Win32.Build.0 = Debug|Win32
+		{13B3DAB6-1F96-4D2A-AC3A-61BF9AE27A7A}.Release|Win32.ActiveCfg = Release|Win32
+		{13B3DAB6-1F96-4D2A-AC3A-61BF9AE27A7A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
