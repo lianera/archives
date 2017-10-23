@@ -1,6 +1,8 @@
 archives
 =====
 
++ 2017
+	* [MagicPlainV2](2017/MagicPlainV2)
 + 2016
 	* [LtRay光线跟踪器](2016/LtRay)
 	* [球谐光照](2016/SphericalHarmonicsLighting)
