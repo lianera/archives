@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/obj">
+        <file alias="dot">dot.obj</file>
+        <file alias="bar">bar.obj</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file alias="logo">logo.png</file>
+    </qresource>
+</RCC>
