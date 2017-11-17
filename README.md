@@ -3,6 +3,7 @@ archives
 
 + 2017
 	* [MagicPlainV2](2017/MagicPlainV2)
+	* [GradientDescent](2017/GradientDescent)
 + 2016
 	* [LtRay光线跟踪器](2016/LtRay)
 	* [球谐光照](2016/SphericalHarmonicsLighting)
