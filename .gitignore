@@ -1,7 +1,7 @@
 *~
 *.lib
 *.swp
-*.exe
+#*.exe
 *.tga
 *.ply
 *.ppm

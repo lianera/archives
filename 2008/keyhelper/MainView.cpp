@@ -43,10 +43,10 @@ BEGIN_MESSAGE_MAP(CMainView, CView)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, CView::OnFilePrintPreview)
 END_MESSAGE_MAP()
 ///////////////////////////////////////////////////////
-long StrToLong(char const *string)
+/*long StrToLong(char const *string)
 {	
 	return atol(string);
-}
+}*/
 
 /////////////////////////////////////////////////////////////////////////////
 // CMainView construction/destruction
