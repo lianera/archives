@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "俄罗斯方块", "俄罗斯方块.vcxproj", "{C19E7B66-3E52-4064-840C-232EE8FEC623}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C19E7B66-3E52-4064-840C-232EE8FEC623}.Debug|x86.ActiveCfg = Debug|Win32
+		{C19E7B66-3E52-4064-840C-232EE8FEC623}.Debug|x86.Build.0 = Debug|Win32
+		{C19E7B66-3E52-4064-840C-232EE8FEC623}.Release|x86.ActiveCfg = Release|Win32
+		{C19E7B66-3E52-4064-840C-232EE8FEC623}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32563088-9CF3-4C6B-A74C-6B2ED1009C9D}
+	EndGlobalSection
+EndGlobal

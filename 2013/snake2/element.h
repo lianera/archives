@@ -100,7 +100,7 @@ class SelBox:public Rect//选择框类
 public:
 	SelBox(int sx,int sy,int sw,int sh,float scale=1);//scale为文本和按钮的大小比
 	void Deal();
-	void SelBox::SetAni(int psb1,int plb1,int prb1,int psb2=-1,int plb2=-1,int prb2=-1,int psb3=-1,int plb3=-1,int prb3=-1);
+	void SetAni(int psb1,int plb1,int prb1,int psb2=-1,int plb2=-1,int prb2=-1,int psb3=-1,int plb3=-1,int prb3=-1);
 	SelBox& Add(const string& str){strlist.push_back(str);return *this;}
 	SelBox& Add(int num){ostringstream ss;ss<<num;strlist.push_back(ss.str());return *this;}
 	string& str(){return strlist[curstr];}

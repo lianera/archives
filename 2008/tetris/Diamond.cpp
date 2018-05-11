@@ -36,10 +36,10 @@ bool CDiamond::FullLine()
 {
 	bool IsFull,Full=false;
 	pManager->SeriesLine=0;
-	for(int iy=0;iy<=pPanel->nVGridNum;iy++)
+	for(int iy=0;iy<pPanel->nVGridNum;iy++)
 	{
 		IsFull=true;
-		for(int ix=0;ix<=pPanel->nHGridNum;ix++)
+		for(int ix=0;ix<pPanel->nHGridNum;ix++)
 		{
 			if(!pBlock->BlockPanel[ix][iy]) IsFull=false;
 		}
@@ -49,7 +49,7 @@ bool CDiamond::FullLine()
 			pManager->SeriesLine++;
 			for(int jy=iy;jy>0;jy--)
 			{	Sleep(10);
-				for(int jx=0;jx<=pPanel->nHGridNum;jx++)
+				for(int jx=0;jx<pPanel->nHGridNum;jx++)
 				{
 					pBlock->BlockPanel[jx][jy]=pBlock->BlockPanel[jx][jy-1];
 				}
@@ -150,7 +150,7 @@ bool CDiamond::overlap()
 				//TexPos.x+=pPanel->GridSize.cy;
 				TexPos.y+=pPanel->GridSize.cy;
 				if(TexPos.x<pPanel->PanelRect.left ||	//是否越界
-				   TexPos.x>pPanel->PanelRect.right||
+				   TexPos.x+ pPanel->GridSize.cx>pPanel->PanelRect.right||
 				   TexPos.y>pPanel->PanelRect.bottom)
 				   bTuFa=true;
 				//判断障碍物

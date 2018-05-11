@@ -37,8 +37,8 @@ void CPanel::DrawPanel(CDC* pDC)
 	//DrawBegin
 
 	RECT Rect=PanelRect;
-	Rect.bottom=PanelRect.bottom-3;
-	Rect.right=PanelRect.right+9;
+	Rect.bottom=PanelRect.bottom;
+	Rect.right=PanelRect.right;
 	pDC->Rectangle(&Rect);
 	pDC->Rectangle(&TextRect);
 	//Text
@@ -59,13 +59,13 @@ void CPanel::DrawPanel(CDC* pDC)
 	for(int iy=PanelRect.top;iy<PanelRect.bottom;iy+=GridSize.cy)
 	{
 		pDC->MoveTo(PanelRect.left,iy);
-		pDC->LineTo(PanelRect.right+8,iy);
+		pDC->LineTo(PanelRect.right,iy);
 	}
 
 	for(int ix=PanelRect.left;ix<PanelRect.right;ix+=GridSize.cx)
 	{
 		pDC->MoveTo(ix,PanelRect.top);
-		pDC->LineTo(ix,PanelRect.bottom-5);
+		pDC->LineTo(ix,PanelRect.bottom);
 	}
 	//DrawEnd
 	pDC->SelectObject(pOldBrush);

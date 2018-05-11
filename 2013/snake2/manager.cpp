@@ -590,31 +590,35 @@ void Manager::Stop()
 }
 
 Mid::Mid(const string& fname):filename(fname)
-{//mid的初始化
-	MCI_DGV_OPEN_PARMS mciOpen;
-	MCIERROR mciError;
-	mciOpen.lpstrDeviceType = "sequencer"; //设备名
-	mciOpen.lpstrElementName = (char*)filename.c_str(); //设备元素
-	mciError=mciSendCommand(0, MCI_OPEN,MCI_OPEN_TYPE|MCI_OPEN_ELEMENT,(DWORD)&mciOpen);
-	if(mciError)
-	{
-		char s[80];
-		mciGetErrorString(mciError,s,80);
-		throw Outer_Error(s);
-	}
-	wDeviceID=mciOpen.wDeviceID; //保存设备ID
+{
 }
 
 Mid::~Mid()
 {
-	mciSendCommand(wDeviceID,MCI_CLOSE,0,NULL); 
 }
 
 void Mid::Play()
 {
+	//mid的初始化
+	MCI_DGV_OPEN_PARMS mciOpen;
+	MCIERROR mciError;
+	char devname[] = "sequencer"; //设备名
+	char sfile[255];
+	strcpy_s(sfile, 255, filename.c_str()); //设备元素
+	mciOpen.lpstrDeviceType = devname;
+	mciOpen.lpstrElementName = sfile;
+	mciError = mciSendCommand(0, MCI_OPEN, MCI_OPEN_TYPE | MCI_OPEN_ELEMENT, (DWORD)&mciOpen);
+	if (mciError)
+	{
+		char s[80];
+		mciGetErrorString(mciError, s, 80);
+		throw Outer_Error(s);
+	}
+	wDeviceID = mciOpen.wDeviceID; //保存设备ID
+
 	MCI_DGV_PLAY_PARMS mciPlay;
 	mciSendCommand (wDeviceID, MCI_SEEK, MCI_SEEK_TO_START, NULL); 
-	MCIERROR mciError=mciSendCommand(wDeviceID, MCI_PLAY, MCI_DGV_PLAY_REPEAT, (DWORD)&mciPlay);
+	mciError=mciSendCommand(wDeviceID, MCI_PLAY, MCI_DGV_PLAY_REPEAT, (DWORD)&mciPlay);
 	if(mciError)
 	{
 		char s[80];
@@ -626,4 +630,5 @@ void Mid::Play()
 void Mid::Stop()
 {
 	mciSendCommand(wDeviceID,MCI_STOP,0,NULL); 
+	mciSendCommand(wDeviceID, MCI_CLOSE, 0, NULL);
 }

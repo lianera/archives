@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
@@ -747,7 +748,7 @@ int ReadPicItem(int index,struct tpPicItem* picitem)
 
 void ReadMapTank(int map)
 {
-	char* p,*q;
+	char *p = NULL, *q = NULL;
 	int i,x,y,type;
 	char tmp[MAXNAMELEN],endflag[MAXNAMELEN];
 	sprintf(tmp,"<MapTanks%d>",map);
@@ -776,7 +777,7 @@ void ReadMapTank(int map)
 
 void ReadMapBlock(int index)
 {
-	char* p,*q;
+	char *p = NULL,*q = NULL;
 	int i=0,x,y,type;
 	char tmp[MAXNAMELEN],endflag[MAXNAMELEN];
 	sprintf(tmp,"<MapBlocks%d>",index);
