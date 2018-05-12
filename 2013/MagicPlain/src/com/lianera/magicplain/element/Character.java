@@ -41,7 +41,7 @@ public class Character extends Element{
 		step+=s;
 	}
 	public Bomb PutBomb(){
-		Game.gameRef.PlaySound("res/putbomb.wav");
+		Game.gameRef.PlaySound("/putbomb.wav");
 		Bomb b=(Bomb) bomb.clone();
 		b.setLocWithApper(gx, gy);
 		b.addPower(strength);

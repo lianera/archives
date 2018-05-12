@@ -18,8 +18,9 @@ public class OriginImage{
 	public void setSource(String imgSource){
 		source=imgSource;
 	}
-	public String getSource(){
-		return source;
+	public String getResource(){
+		String resource = source.substring(source.lastIndexOf("/"));
+		return resource;
 	}
 	public int getTileNum(){
 		return height/tileWidth*width/tileHeight;

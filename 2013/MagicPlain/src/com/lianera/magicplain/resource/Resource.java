@@ -121,7 +121,9 @@ public class Resource {
 	}
 	private static void LoadBackground() {
 		// º”‘ÿ±≥æ∞
-		background=new Background(new Picture(gameRef.LoadImage(Game.mapReader.getBackgroundImage()), 0,
+		String filepath = Game.mapReader.getBackgroundImage();
+		String resname = filepath.substring(filepath.lastIndexOf("/"));
+		background=new Background(new Picture(gameRef.LoadImage(resname), 0,
 				0,
 				Game.mapReader.getMapWidth() * Game.mapReader.getTileWidth(),
 				Game.mapReader.getMapHeight() * Game.mapReader.getTileHeight()));
@@ -134,7 +136,7 @@ public class Resource {
 		List<OriginImage> originImg = Game.mapReader.getOriginImages();
 		for (OriginImage img : originImg) {
 			elemTop += img.getTileNum();
-			Image theImg = gameRef.LoadImage(img.getSource());
+			Image theImg = gameRef.LoadImage(img.getResource());
 			images.add(theImg);
 			TileType ct = null;
 			while (curTile < tileTypes.size()
@@ -192,7 +194,7 @@ public class Resource {
 					}
 				}else{
 					if(et.equals(ELEMTYPE.BOMB)){
-						gameRef.PlaySound("res/explosion.wav");
+						gameRef.PlaySound("/explosion.wav");
 						Explosion exp = ((Bomb)e).GetExp();
 						exp.Enable(true);
 						scrExplosions.add(exp);

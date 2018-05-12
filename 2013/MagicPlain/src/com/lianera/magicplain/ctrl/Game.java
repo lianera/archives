@@ -14,11 +14,11 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
@@ -61,17 +61,19 @@ public class Game extends Applet implements Runnable{
 	private Image imgMenuBack;
 	private Image[] imgScene;
 	private Mp3[] mp3Map;
-	private Mp3 mp3Menu=new Mp3("res/menu.mp3");
+	private Mp3 mp3Menu=new Mp3("/menu.mp3");
 	
 	int gameLevel=0;
 	
-	JButton butStart=new JButton(new ImageIcon("res/butStart.png"));
-	JButton butExit=new JButton(new ImageIcon("res/butExit.png"));
+	JButton butStart = null;
+	JButton butExit = null;
 	ImagePanel panMenu=new ImagePanel();
 	ImagePanel panClip=new ImagePanel();
+	JLabel logoAni = null;
 	class ImagePanel extends JPanel{
 		private static final long serialVersionUID = 1L;
 		Image img;
+
 		void setImage(Image image){img=image;}
 		protected void paintComponent(Graphics g) {   
             g.drawImage(img, 0, 0, Game.windowWidth, Game.windowHeight, null);  
@@ -104,28 +106,43 @@ public class Game extends Applet implements Runnable{
 	}
 	
 	private void LoadData(){
-		imgLogo=LoadImage("res/logo.gif");
-		imgVictory=LoadImage("res/victory.png");
-		imgFail=LoadImage("res/failed.png");
-		imgMenuBack=LoadImage("res/menuback.png");
-		imgScene=new Image[]{LoadImage("res/scene1.png"),
-				LoadImage("res/scene2.png"),
-				LoadImage("res/scene3.png"),
-				LoadImage("res/scene4.png"),
+		imgLogo=LoadImage("/logo.gif");
+		imgVictory=LoadImage("/victory.png");
+		imgFail=LoadImage("/failed.png");
+		imgMenuBack=LoadImage("/menuback.png");
+		imgScene=new Image[]{LoadImage("/scene1.png"),
+				LoadImage("/scene2.png"),
+				LoadImage("/scene3.png"),
+				LoadImage("/scene4.png"),
 				};
-		mp3Map=new Mp3[]{new Mp3("res/map1.mp3"),new Mp3("res/map2.mp3"),
-				new Mp3("res/map3.mp3"),new Mp3("res/map4.mp3")};
+		mp3Map=new Mp3[]{new Mp3("/map1.mp3"),new Mp3("/map2.mp3"),
+				new Mp3("/map3.mp3"),new Mp3("/map4.mp3")};
 	}
 	public Image LoadImage(String path){
-		return getToolkit().getImage(path);
+		Image img = null;
+		try {
+			img = ImageIO.read(getClass().getResource(path));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return img;
 	}
 	
 	public void init(){
+
 		//gameRef=this;
 		LoadData();
+		try {
+			butStart = new JButton(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/butStart.png"))));
+			butExit = new JButton(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/butExit.png"))));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		ListenerProc();
 		
 		panMenu.setLayout(null);
+
 		butStart.setLocation(windowWidth/2, windowHeight*3/5);
 		butStart.setSize(windowWidth/3,windowHeight/6);
 		butExit.setLocation(windowWidth/2, windowHeight*4/5);
@@ -148,16 +165,16 @@ public class Game extends Applet implements Runnable{
 	class MouseEnter implements MouseListener{
 		public void mouseClicked(MouseEvent arg0) {}
 		public void mouseEntered(MouseEvent arg0) {
-			Game.gameRef.PlaySound("res/butenter.wav");	
+			Game.gameRef.PlaySound("/butenter.wav");
 		}
 		public void mouseExited(MouseEvent arg0) {}
 		public void mousePressed(MouseEvent arg0) {
-			Game.gameRef.PlaySound("res/butpressed.wav");
+			Game.gameRef.PlaySound("/butpressed.wav");
 		}
 		public void mouseReleased(MouseEvent arg0) {}
 	}
 	private void ListenerProc(){
-		
+
 		butStart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				Game.state=GAME_STATE.SHOWSCENE;
@@ -212,9 +229,9 @@ public class Game extends Applet implements Runnable{
 	public void PlaySound(String snd){
 		
 		try {
-			
-		AudioStream as=new AudioStream(new FileInputStream(snd));
-		AudioPlayer.player.start(as);
+			InputStream buffer = this.getClass().getResource(snd).openStream();
+			AudioStream as=new AudioStream(buffer);
+			AudioPlayer.player.start(as);
 		}
 		catch (Exception e) {}
 	}
@@ -224,7 +241,7 @@ public class Game extends Applet implements Runnable{
 	private void GameInit(){
 		try {
 			mp3Map[gameLevel/4].Play();
-			mapReader=new MapReader("dat/map"+(int)(gameLevel+1)+".txt");
+			mapReader=new MapReader("/map"+(int)(gameLevel+1)+".txt");
 			gameRes=new Resource();
 			mainChar=gameRes.getMainChar();
 			intellig=new Intelligence();
@@ -255,18 +272,23 @@ public class Game extends Applet implements Runnable{
 	}
 	public void ShowLogo(){
 		if(!panClip.isVisible()){
-			panClip.setImage(imgLogo);
+			URL url = this.getClass().getResource("/logo.gif");
+			Icon icon = new ImageIcon(url);
+			logoAni = new JLabel(icon);
+			panClip.add(logoAni);
+			//panClip.setImage(imgLogo);
 			this.add(panClip);
 			panClip.setVisible(true);
-			PlaySound("res/logo.wav");
+			PlaySound("/logo.wav");
 		}
 		if(timeCount>3000){
 			state=GAME_STATE.SHOWMENU;
 			panClip.setVisible(false);
+			panClip.remove(logoAni);
 			this.remove(panClip);
-		}else if(timeCount>900){
+		}/*else if(timeCount>900){
 			panClip.setImage(imgLogo);
-		}
+		}*/
 	}
 	public void ShowScene(){
 		if(!panClip.isVisible()){
@@ -279,7 +301,7 @@ public class Game extends Applet implements Runnable{
 			panClip.setImage(imgScene[sid]);
 			this.add(panClip);
 			panClip.setVisible(true);
-			PlaySound("res/scene.wav");
+			PlaySound("/scene.wav");
 			timeCount=0;
 		}
 		if(timeCount>1600){
@@ -297,7 +319,7 @@ public class Game extends Applet implements Runnable{
 			panClip.setVisible(true);
 			mp3Map[gameLevel/4].Stop();
 			gameLevel=(gameLevel+1)%16;
-			PlaySound("res/victory.wav");
+			PlaySound("/victory.wav");
 			timeCount=0;
 		}
 		if(timeCount>3000){
@@ -313,7 +335,7 @@ public class Game extends Applet implements Runnable{
 			this.add(panClip);
 			panClip.setVisible(true);
 			mp3Map[gameLevel/4].Stop();
-			PlaySound("res/fail.wav");
+			PlaySound("/fail.wav");
 			timeCount=0;
 		}
 		if(timeCount>3000){

@@ -31,7 +31,7 @@ public class MapReader extends DefaultHandler {
 	private int firstgid=0;
 
 	public String getBackgroundImage(){
-		return backGroundImg.getSource();
+		return backGroundImg.getResource();
 	}
 	public int getMapWidth() {
 		return width;
@@ -83,7 +83,8 @@ public class MapReader extends DefaultHandler {
 	}
 	public MapReader(String path) throws SAXException, IOException,
 			ParserConfigurationException {
-		InputStream xmlStream =new FileInputStream(path);
+		InputStream xmlStream = this.getClass().getResource(path).openStream();
+		//InputStream xmlStream =new FileInputStream(path);
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		SAXParser parser = factory.newSAXParser();
 		parser.parse(xmlStream, this);

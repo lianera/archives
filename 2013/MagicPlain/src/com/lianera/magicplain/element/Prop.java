@@ -11,6 +11,6 @@ public class Prop extends Element{
 	public void OnBumped(Character ch){
 		visible=false;
 		work=false;
-		Game.gameRef.PlaySound("res/getprop.wav");
+		Game.gameRef.PlaySound("/getprop.wav");
 	}
 }

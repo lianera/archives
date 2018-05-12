@@ -4,6 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.net.URL;
 
 import javazoom.jl.player.Player;
 
@@ -28,7 +29,8 @@ public class Mp3 extends Thread{
     		synchronized(this){
 	    	try {
 	    		if(closed)this.wait();
-	            BufferedInputStream buffer =new BufferedInputStream(new FileInputStream(file));
+				InputStream buffer = this.getClass().getResource(file).openStream();
+				//BufferedInputStream buffer =new BufferedInputStream(new FileInputStream(file));
 	            player = new Player(buffer);
 				player.play();
 				buffer.close();
