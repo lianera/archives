@@ -21,5 +21,5 @@ archives
 	* [Block Game](2012/BlockGame)
 + 2008
 	* [贪吃蛇（一）](2008/snake1)
-	* [俄罗斯方块](2008/terrain)
+	* [俄罗斯方块](2008/tetris)
 	* [按键助手](2008/keyhelper)
