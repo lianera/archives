@@ -9,13 +9,13 @@ import javax.swing.JOptionPane;
 import ai.AiMoveMatrix;
 import ai.Solution;
 /**
- * ÓÎÏ·Àà£¬ÓÃÓÚÄ£¿éµÄĞ­µ÷ºÍ³ÌĞòµÄÕûÌå¿ØÖÆ
+ * æ¸¸æˆç±»ï¼Œç”¨äºæ¨¡å—çš„åè°ƒå’Œç¨‹åºçš„æ•´ä½“æ§åˆ¶
  * @author duan
  * @version 1.0
  */
 public class Game extends Thread{
 	/**
-	 * È«¾ÖÖ»ÓĞÒ»¸öGame¶ÔÏó
+	 * å…¨å±€åªæœ‰ä¸€ä¸ªGameå¯¹è±¡
 	 */
 	public static Game theGame;
 	Matrix mat;
@@ -24,7 +24,7 @@ public class Game extends Thread{
 	private GameState state;
 	private Window wnd;
 	/**
-	 * ÊÇ·ñÒÔÍ¼ĞÎ½çÃæÔËĞĞ
+	 * æ˜¯å¦ä»¥å›¾å½¢ç•Œé¢è¿è¡Œ
 	 */
 	private boolean guiMode;
 	enum GameState{
@@ -36,9 +36,9 @@ public class Game extends Thread{
 		try {
 			if(guiMode){
 				wnd=new Window();
-				//»ñÈ¡ÆÁÄ»´óĞ¡
+				//è·å–å±å¹•å¤§å°
 			    Dimension scrSize =Toolkit.getDefaultToolkit().getScreenSize();
-			    //ÒÆ¶¯µ½ÆÁÄ»ÖĞÑë
+			    //ç§»åŠ¨åˆ°å±å¹•ä¸­å¤®
 			    wnd.setLocation((int)(scrSize.getWidth()-wnd.getWidth())/2, 
 			    		(int)(scrSize.getHeight()-wnd.getHeight())/2);
 			}
@@ -50,13 +50,13 @@ public class Game extends Thread{
 		}
 	}
 	/**
-	 * ÖØĞÂ¿ªÊ¼ÓÎÏ·
+	 * é‡æ–°å¼€å§‹æ¸¸æˆ
 	 */
 	public void restart(){
 		initGame();
 	}
 	/**
-	 * ¶ÔÓÎÏ·²ÎÊı½øĞĞ³õÊ¼»¯£¬ÓÃÓÚ×î¿ªÊ¼»òÕßÖØĞÂ¿ªÊ¼ÓÎÏ·Ê±
+	 * å¯¹æ¸¸æˆå‚æ•°è¿›è¡Œåˆå§‹åŒ–ï¼Œç”¨äºæœ€å¼€å§‹æˆ–è€…é‡æ–°å¼€å§‹æ¸¸æˆæ—¶
 	 */
 	private void initGame(){
 		mat=new Matrix();
@@ -70,7 +70,7 @@ public class Game extends Thread{
 		if(state!=GameState.RUNNING)
 			return;
 		int r=mat.move(d);
-		if(r>=0){	//ÒÆ¶¯ÓĞĞ§Ê±²Å½øĞĞ¼Ó·Ö
+		if(r>=0){	//ç§»åŠ¨æœ‰æ•ˆæ—¶æ‰è¿›è¡ŒåŠ åˆ†
 			score+=r;
 			step++;
 			if(mat.dead()){
@@ -82,12 +82,12 @@ public class Game extends Thread{
 		if(mat.dead()){
 			state=GameState.BEENOVER;
 		}
-		//Êı¾İ¸Ä±äÁË£¬ĞèÒª¸üĞÂ´°¿Ú
+		//æ•°æ®æ”¹å˜äº†ï¼Œéœ€è¦æ›´æ–°çª—å£
 		if(guiMode){
 			//System.out.println(guiMode);
 			wnd.refresh(mat.toIntMatrix(), score);
 			if(state==GameState.BEENOVER)
-				JOptionPane.showMessageDialog(null, "ÓÎÏ·½áÊø£¡", "½áÊø", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "æ¸¸æˆç»“æŸï¼", "ç»“æŸ", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
@@ -117,7 +117,7 @@ public class Game extends Thread{
 		return step;
 	}
 	public String toString(){
-		return mat+"µ±Ç°µÃ·Ö:"+Integer.toString(score)+"   µ±Ç°²½Êı£º"+Integer.toString(step);
+		return mat+"å½“å‰å¾—åˆ†:"+Integer.toString(score)+"   å½“å‰æ­¥æ•°ï¼š"+Integer.toString(step);
 	}
 	
 	public void startAi(){
@@ -128,7 +128,7 @@ public class Game extends Thread{
 		//Game game=new Game(true);
     	Solution sl=new Solution();
 		/**
-		 *   ×ÜµÄ·ÖÊı¡¢×ÜµÄ²½Êı¡¢¿Õ¸ñÊı¡¢×î´óÊıÀëÖĞĞÄµÄ¾àÀë¡¢ÏàÁÚµÄÊıÏà²îÔ½Ğ¡Ô½ºÃ
+		 *   æ€»çš„åˆ†æ•°ã€æ€»çš„æ­¥æ•°ã€ç©ºæ ¼æ•°ã€æœ€å¤§æ•°ç¦»ä¸­å¿ƒçš„è·ç¦»ã€ç›¸é‚»çš„æ•°ç›¸å·®è¶Šå°è¶Šå¥½
 		 */
     //	AiMatrix.setWeights(0.1, 0.0, 10.0, 1.0, -1.0);
     	System.out.println(this);   
@@ -148,7 +148,7 @@ public class Game extends Thread{
     				this.moveDown();
     				break;
     		}
-        	System.out.println("½â¾ö·½°¸:"+d.toString());   
+        	System.out.println("è§£å†³æ–¹æ¡ˆ:"+d.toString());   
         	System.out.println(this);    
         	try {
 				Thread.sleep(5);
@@ -157,10 +157,10 @@ public class Game extends Thread{
 				e.printStackTrace();
 			}		
     	}
-    	System.out.println("ÓÎÏ·½áÊø£¡");      	
+    	System.out.println("æ¸¸æˆç»“æŸï¼");      	
 	}
 	/**
-	 * ÕıÊ½µÄ³ÌĞòÈë¿Ú
+	 * æ­£å¼çš„ç¨‹åºå…¥å£
 	 * @param args
 	 */
 	public static void main(String[] args){

@@ -4,7 +4,7 @@ import core.Direction;
 import core.Matrix;
 
 /**
- * ´ËÀàÊÇAIÓÃÀ´ÑÐ¾¿ÒÆ¶¯µÄ¾ØÕó
+ * æ­¤ç±»æ˜¯AIç”¨æ¥ç ”ç©¶ç§»åŠ¨çš„çŸ©é˜µ
  * @author duan
  *
  */
@@ -30,11 +30,11 @@ public class AiMoveMatrix extends AiMatrix{
 		curDir++;
 		if(r>=0){
 			/**
-			 * ×Ü·Ö
+			 * æ€»åˆ†
 			 */
 			//mat.score+=r;
 			/**
-			 * ±¾´ÎµÃ·Ö
+			 * æœ¬æ¬¡å¾—åˆ†
 			 */
 			mat.score=r;
 			mat.totalStep++;

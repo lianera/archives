@@ -7,14 +7,14 @@ import core.Matrix;
 
 public class Producer {
 	Vector<int[][]> matSet;
-	private int[][][] available=new int[9][9][];//¼ÇÂ¼¿ÉÌîµÄÊı×Ö,0±íÊ¾¿ÉÌî
+	private int[][][] available=new int[9][9][];//è®°å½•å¯å¡«çš„æ•°å­—,0è¡¨ç¤ºå¯å¡«
 	public int[][] getMatrix(int index){
 		return matSet.get(index);
 	}
 	/**
-	 * ÇóÒ»¸öÌâÄ¿µÄËùÓĞ½â£¬²¢±£´æÆğÀ´
-	 * @param mat ÌâÄ¿¾ØÕó
-	 * @return ½âµÄ¸öÊı
+	 * æ±‚ä¸€ä¸ªé¢˜ç›®çš„æ‰€æœ‰è§£ï¼Œå¹¶ä¿å­˜èµ·æ¥
+	 * @param mat é¢˜ç›®çŸ©é˜µ
+	 * @return è§£çš„ä¸ªæ•°
 	 * @throws IOException
 	 */
 	public int Produce(Matrix mat) throws IOException{
@@ -24,7 +24,7 @@ public class Producer {
 			for(int j=0;j<9;j++)
 				tmpMatrix[i][j]=mat.getElem(j, i);
 		int direction=1;
-		//Éî¶ÈÓÅÏÈ±éÀú
+		//æ·±åº¦ä¼˜å…ˆéå†
 		for(int n=0;n<=81 && n>=0;n+=direction){
 			int x=n%9;
 			int y=n/9;
@@ -38,14 +38,14 @@ public class Producer {
 				direction=-1;
 				continue;
 			}
-			if(mat.getElems()[y][x]==0){//ÊÇ·ñĞèÒªÌî
-				//boolean hasAva=false;//ÓĞ¿ÉÌîµÄ
-				//¶ÔÓÚÄ³¸ö¸ñ×Ó
+			if(mat.getElems()[y][x]==0){//æ˜¯å¦éœ€è¦å¡«
+				//boolean hasAva=false;//æœ‰å¯å¡«çš„
+				//å¯¹äºæŸä¸ªæ ¼å­
 				if(direction==1)
 					available[y][x]=getAvailable(tmpMatrix,x,y);
 				direction=-1;
 				for(int k=tmpMatrix[y][x]+1;k<=9;k++){
-					if(available[y][x][k]==0){//Èç¹û¿ÉÌî
+					if(available[y][x][k]==0){//å¦‚æœå¯å¡«
 						tmpMatrix[y][x]=k;
 						//hasAva=true;
 						direction=1;
@@ -61,25 +61,25 @@ public class Producer {
 		return matSet.size();	
 	}
 	/**
-	 * »ñÈ¡¿ÉÌîµÄÊı×Ö
+	 * è·å–å¯å¡«çš„æ•°å­—
 	 * @param matrix
 	 * @param x
 	 * @param y
-	 * @return ¿ÉÌîµÄÊı×ÖÊı×é
+	 * @return å¯å¡«çš„æ•°å­—æ•°ç»„
 	 */
 	private int[] getAvailable(int[][] matrix,int x,int y){
 		int[] n=new int[10];
 		for(int i=0;i<=9;i++)
 			n[i]=0;
-		//ÁĞ
+		//åˆ—
 		for(int i=0;i<9;i++)
 			n[matrix[i][x]]++;
-		//ĞĞ
+		//è¡Œ
 		for(int j=0;j<9;j++)
 			n[matrix[y][j]]++;
 		int nonx=(x/3)*3;
 		int nony=(y/3)*3;
-		//¹¬
+		//å®«
 		for(int i=nony;i<nony+3;i++)
 			for(int j=nonx;j<nonx+3;j++)
 				n[matrix[i][j]]++;

@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.JPanel;
 /**
- * 这只是一个带图片的Panel!
+ * 杩欏彧鏄竴涓甫鍥剧墖鐨凱anel!
  * @author duan
  *
  */
@@ -18,7 +18,7 @@ public class ImagePanel extends JPanel{
 		img=image;
 	}
 	/**
-	 * 从文件中加载图片
+	 * 浠庢枃浠朵腑鍔犺浇鍥剧墖
 	 * @param file
 	 */
 	public ImagePanel(String file){

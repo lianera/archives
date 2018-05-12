@@ -11,7 +11,7 @@ public class AiTest {
     	Game game=new Game(true);
     	Solution sl=new Solution();
 		/**
-		 *   ×ÜµÄ·ÖÊı¡¢×ÜµÄ²½Êı¡¢¿Õ¸ñÊı¡¢×î´óÊıÀëÖĞĞÄµÄ¾àÀë¡¢ÏàÁÚµÄÊıÏà²îÔ½Ğ¡Ô½ºÃ
+		 *   æ€»çš„åˆ†æ•°ã€æ€»çš„æ­¥æ•°ã€ç©ºæ ¼æ•°ã€æœ€å¤§æ•°ç¦»ä¸­å¿ƒçš„è·ç¦»ã€ç›¸é‚»çš„æ•°ç›¸å·®è¶Šå°è¶Šå¥½
 		 */
     //	AiMatrix.setWeights(0.1, 0.0, 10.0, 1.0, -1.0);
     	System.out.println(game);   
@@ -31,7 +31,7 @@ public class AiTest {
     				game.moveDown();
     				break;
     		}
-        	System.out.println("½â¾ö·½°¸:"+d.toString());   
+        	System.out.println("è§£å†³æ–¹æ¡ˆ:"+d.toString());   
         	System.out.println(game);    
         	try {
 				Thread.sleep(200);

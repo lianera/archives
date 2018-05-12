@@ -1,6 +1,6 @@
 package util;
 /**
- * Ë³Ğò±íÀà
+ * é¡ºåºè¡¨ç±»
  * @author duan
  * @version 1.0
  */
@@ -13,31 +13,31 @@ public class SeqList {
 		size=0;
 	}
 	/**
-	 * Íù±íÖĞ²åÈëÔªËØ
-	 * @param pos Î»ÖÃ£¬´Ó0¿ªÊ¼
-	 * @param o ¶ÔÏó
-	 * @warnings Î´¼ì²éposµÄÖµ
+	 * å¾€è¡¨ä¸­æ’å…¥å…ƒç´ 
+	 * @param pos ä½ç½®ï¼Œä»0å¼€å§‹
+	 * @param o å¯¹è±¡
+	 * @warnings æœªæ£€æŸ¥posçš„å€¼
 	 */
 	public void insert(int pos,Object o){
-		//Êı×éÒÑÂúÔòÀ©Èİ
+		//æ•°ç»„å·²æ»¡åˆ™æ‰©å®¹
 		if(size==objs.length){
 			expandCapacity();
 		}
-		//ÒÆ¶¯²åÈëÎ»ÖÃÖ®ºóµÄÔªËØ
+		//ç§»åŠ¨æ’å…¥ä½ç½®ä¹‹åçš„å…ƒç´ 
 		for(int i=size;i>pos;i--)
 			objs[i]=objs[i-1];
 		objs[pos]=o;
 		size++;
 	}
 	/**
-	 * ²åÈëµ½×îºó
+	 * æ’å…¥åˆ°æœ€å
 	 * @param o
 	 */
 	public void insert(Object o){
 		this.insert(size, o);
 	}
 	/**
-	 * ·µ»ØÖ¸¶¨Î»ÖÃµÄÔªËØ
+	 * è¿”å›æŒ‡å®šä½ç½®çš„å…ƒç´ 
 	 * @param pos
 	 * @return
 	 */
@@ -45,26 +45,26 @@ public class SeqList {
 		return objs[pos];
 	}
 	/**
-	 * ÅĞ¶ÏÊÇ·ñÎª¿Õ
+	 * åˆ¤æ–­æ˜¯å¦ä¸ºç©º
 	 * @return
 	 */
 	public boolean empty(){
 		return size==0;
 	}
 	/**
-	 * È¡µÃ´óĞ¡
+	 * å–å¾—å¤§å°
 	 * @return
 	 */
 	public int getSize(){
 		return size;
 	}
 	/**
-	 * À©Èİ
-	 * @warnings Î´½øĞĞÄÚ´æ·ÖÅä¼ì²é£¬ÓĞ±ØÒª£¿
+	 * æ‰©å®¹
+	 * @warnings æœªè¿›è¡Œå†…å­˜åˆ†é…æ£€æŸ¥ï¼Œæœ‰å¿…è¦ï¼Ÿ
 	 */
 	private void expandCapacity(){
-		Object[] newObjs=new Object[objs.length*2];//Ã¿´Î¼Ó±¶£¬Ã¿´Î²åÈë¸´ÔÓ¶ÈÎªlog2(n)?j
-		for(int i=0;i<objs.length;i++)	//¸´ÖÆ
+		Object[] newObjs=new Object[objs.length*2];//æ¯æ¬¡åŠ å€ï¼Œæ¯æ¬¡æ’å…¥å¤æ‚åº¦ä¸ºlog2(n)?j
+		for(int i=0;i<objs.length;i++)	//å¤åˆ¶
 			newObjs[i]=objs[i];
 		objs=newObjs;
 	}

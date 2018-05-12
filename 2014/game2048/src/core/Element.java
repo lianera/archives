@@ -3,7 +3,7 @@ package core;
 import java.util.Random;
 
 /**
- * ¾ØÕóÉÏµÄÔªËØ
+ * çŸ©é˜µä¸Šçš„å…ƒç´ 
  * @author duan
  * @version 2.0
  */
@@ -11,7 +11,7 @@ public class Element {
 	private int figure;
 	private static Random r=new Random();
 	/**
-	 * Ä¬ÈÏ³õÊ¼»¯Îª¿Õ
+	 * é»˜è®¤åˆå§‹åŒ–ä¸ºç©º
 	 */
 	public Element(){
 		figure=0;
@@ -26,29 +26,29 @@ public class Element {
 		return figure;
 	}
 	/**
-	 * Ëæ»ú»¯£¬Ëæ»ú±ä³É2»ò4
-	 * ²éÎÄÏ×ºó·¢ÏÖ2ºÍ4¸ÅÂÊÎª9:1
+	 * éšæœºåŒ–ï¼Œéšæœºå˜æˆ2æˆ–4
+	 * æŸ¥æ–‡çŒ®åå‘ç°2å’Œ4æ¦‚ç‡ä¸º9:1
 	 */
 	public void randomize(){
 		//figure=(r.nextInt(2)+1)*2;
 		figure=r.nextInt(10)==0?4:2;
 	}
 	/**
-	 * ÅĞ¶ÏÊÇ·ñÎª¿Õ
-	 * @return trueÔòÎª¿Õ£¬·ñÔò·Ç¿Õ
+	 * åˆ¤æ–­æ˜¯å¦ä¸ºç©º
+	 * @return trueåˆ™ä¸ºç©ºï¼Œå¦åˆ™éç©º
 	 */
 	public boolean empty(){
 		return figure==0;
 	}
 	/**
-	 * Çå¿Õ
+	 * æ¸…ç©º
 	 */
 	public void clear(){
 		figure=0;
 	}
 	/**
-	 * ÓëÄ¿±êÔªËØ½»»»Öµ
-	 * @param e Ä¿±êÔªËØ
+	 * ä¸ç›®æ ‡å…ƒç´ äº¤æ¢å€¼
+	 * @param e ç›®æ ‡å…ƒç´ 
 	 */
 	public void swap(Element e){
 		int tmp=e.figure;
@@ -56,7 +56,7 @@ public class Element {
 		this.figure=tmp;
 	}
 	/**
-	 * ÔªËØÊıÖµ¼Ó±¶
+	 * å…ƒç´ æ•°å€¼åŠ å€
 	 */
 	public void upgrade(){
 		figure*=2;

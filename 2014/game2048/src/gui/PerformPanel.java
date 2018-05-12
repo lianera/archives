@@ -3,7 +3,7 @@ package gui;
 import java.awt.Graphics;
 import java.awt.Image;
 /**
- * ¾ØÕóÃæ°å×¨ÓÃÀà
+ * çŸ©é˜µé¢æ¿ä¸“ç”¨ç±»
  * @author duan
  * @version 1.1
  */
@@ -14,8 +14,8 @@ public class PerformPanel extends ImagePanel{
 	private int[][] matrix;
 	/**
 	 * 
-	 * @param backImage ±³¾°Í¼Ïñ
-	 * @param tiles	Ğ¡¸ñÍ¼Ïñ
+	 * @param backImage èƒŒæ™¯å›¾åƒ
+	 * @param tiles	å°æ ¼å›¾åƒ
 	 * @throws Exception 
 	 */
 	public PerformPanel(Image backImg,Image[] tiles) {
@@ -24,9 +24,9 @@ public class PerformPanel extends ImagePanel{
 		matrix=null;
 	}
 	/**
-	 * ÒÔÍ¼Æ¬ÎÄ¼şÃûµÄ·½Ê½³õÊ¼»¯
-	 * @param backFile ±³¾°Í¼Æ¬
-	 * @param tileFiles Ğ¡¸ñÍ¼Æ¬
+	 * ä»¥å›¾ç‰‡æ–‡ä»¶åçš„æ–¹å¼åˆå§‹åŒ–
+	 * @param backFile èƒŒæ™¯å›¾ç‰‡
+	 * @param tileFiles å°æ ¼å›¾ç‰‡
 	 * @throws Exception 
 	 */
 	public PerformPanel(String backFile,String[] tileFiles){
@@ -38,14 +38,14 @@ public class PerformPanel extends ImagePanel{
 		matrix=null;
 	}
 	/**
-	 * ¸üĞÂ¾ØÕóÃæ°åµÄÊı¾İ
-	 * @param m ×¢Òâ´óĞ¡ÒªÒ»ÖÂ
+	 * æ›´æ–°çŸ©é˜µé¢æ¿çš„æ•°æ®
+	 * @param m æ³¨æ„å¤§å°è¦ä¸€è‡´
 	 */
 	public void setMatrix(int[][] m){
 		matrix=m;
 	}
 	/**
-	 * »ñµÃÔÚ¾ØÕóÖ¸¶¨×ø±êÓ¦³ÊÏÖµÄÍ¼Ïñ
+	 * è·å¾—åœ¨çŸ©é˜µæŒ‡å®šåæ ‡åº”å‘ˆç°çš„å›¾åƒ
 	 * @param x
 	 * @param y
 	 * @return 
@@ -59,7 +59,7 @@ public class PerformPanel extends ImagePanel{
 		return tileImages[id-1];
 	}
 	/**
-	 * ÖØ»­±³¾°ºÍĞ¡¸ñ
+	 * é‡ç”»èƒŒæ™¯å’Œå°æ ¼
 	 */
 	protected void paintComponent(Graphics g) {
 		int w=getWidth();

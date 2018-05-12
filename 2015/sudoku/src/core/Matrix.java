@@ -21,7 +21,7 @@ public class Matrix {
 		elemNum=0;
 	}
 	/**
-	 * ´ÓÁ÷ÖĞ£¨ÎÄ¼ş»ò¼üÅÌ£©¶ÁÈ¡Êı¾İ
+	 * ä»æµä¸­ï¼ˆæ–‡ä»¶æˆ–é”®ç›˜ï¼‰è¯»å–æ•°æ®
 	 * @param is
 	 * @throws IOException
 	 */
@@ -38,7 +38,7 @@ public class Matrix {
 		return conflict;
 	}
 	/**
-	 * ´ÓÎÄ¼şÁ÷ÖĞ¼ÓÔØ
+	 * ä»æ–‡ä»¶æµä¸­åŠ è½½
 	 * @author duan
 	 * @version 1.0
 	 * @throws IOException 
@@ -99,16 +99,16 @@ public class Matrix {
 	}
 	public boolean willConflict(int newx,int newy,int newval){
 			int[] flag=new int[9];
-		for(int f=0;f<9;f++)	//¼ÆÊı±ê¼ÇÊı×é
+		for(int f=0;f<9;f++)	//è®¡æ•°æ ‡è®°æ•°ç»„
 			flag[f]=0;
 		
-		for(int j=0;j<9;j++){//ÅĞ¶ÏĞĞ
+		for(int j=0;j<9;j++){//åˆ¤æ–­è¡Œ
 			int v=elems[newy][j];
 			if(flag[v]!=0)
 				return true;
 			flag[v]++;
 		}	
-		for(int i=0;i<9;i++){//ÅĞ¶ÏÁĞ
+		for(int i=0;i<9;i++){//åˆ¤æ–­åˆ—
 			int v=elems[i][newx];
 			if(flag[v]!=1)
 				return true;
@@ -132,11 +132,11 @@ public class Matrix {
 		return false;
 	}
 	/**
-	 * ÅĞ¶ÏÊÇ·ñÊ¤Àû,ÓÃÓÚÈË»ú£¬ËÙ¶È±È½ÏÂı
+	 * åˆ¤æ–­æ˜¯å¦èƒœåˆ©,ç”¨äºäººæœºï¼Œé€Ÿåº¦æ¯”è¾ƒæ…¢
 	 * @return
 	 */
 	public boolean isComplete(){
-		if(elemNum<81)	//ÊÇ·ñ´ïµ½¸öÊı
+		if(elemNum<81)	//æ˜¯å¦è¾¾åˆ°ä¸ªæ•°
 			return false;		
 		
 
@@ -150,10 +150,10 @@ public class Matrix {
 		return true;
 	}
 	/**
-	 * ´¦Àí³åÍ»
-	 * @param newxĞÂ¼ÓÈëµÄ½Úµãx
-	 * @param newyĞÂ¼ÓÈëµÄ½Úµãy
-	 * @param ĞÂµÄÖµ
+	 * å¤„ç†å†²çª
+	 * @param newxæ–°åŠ å…¥çš„èŠ‚ç‚¹x
+	 * @param newyæ–°åŠ å…¥çš„èŠ‚ç‚¹y
+	 * @param æ–°çš„å€¼
 	 * 
 	 */
 	public void procConflict(int newx,int newy,int newval){
@@ -161,7 +161,7 @@ public class Matrix {
 		if(oldval==newval)
 			return;
 		
-		for(int i=0;i<9;i++){//ÅĞ¶ÏÁĞ
+		for(int i=0;i<9;i++){//åˆ¤æ–­åˆ—
 			if(i==newy)
 				continue;
 			if(elems[i][newx]==oldval)	{
@@ -176,7 +176,7 @@ public class Matrix {
 					conflict[i][newx]++;	
 			}
 		}
-		for(int j=0;j<9;j++){//ÅĞ¶ÏĞĞ
+		for(int j=0;j<9;j++){//åˆ¤æ–­è¡Œ
 			if(j==newx)
 				continue;
 			if(elems[newy][j]==oldval){
@@ -192,7 +192,7 @@ public class Matrix {
 			}
 		}
 		
-		//ÅĞ¶Ï¹¬
+		//åˆ¤æ–­å®«
 		int nonx=newx/3*3;
 		int nony=newy/3*3;
 		for(int m=nonx;m<nonx+3;m++){

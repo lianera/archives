@@ -16,7 +16,7 @@ import core.Game;
 
 
 /**
- * ´°¿ÚÀà£¬ÊµÏÖÓÎÏ·ÔËÐÐÖ÷´°¿Ú
+ * çª—å£ç±»ï¼Œå®žçŽ°æ¸¸æˆè¿è¡Œä¸»çª—å£
  * @author duan
  * @version 2.0
  */
@@ -25,10 +25,10 @@ public class Window extends JFrame implements MouseListener,MouseMotionListener{
 	 * 
 	 */
 	private static final long serialVersionUID = -8076255828372462197L;
-		//Ò»Ð©³£Á¿
+		//ä¸€äº›å¸¸é‡
 		public static final int wndWidth=800;
 		public static final int wndHeight=600;
-		//¿Ø¼þ
+		//æŽ§ä»¶
 		private JPanel pnMain;
 		public PerformPanel pnPerform;
 	//	private JLabel lbScore;
@@ -41,7 +41,7 @@ public class Window extends JFrame implements MouseListener,MouseMotionListener{
 		private JLabel lbAllNum;
 		private JLabel lbTime;
 		/**
-		 * ´°¿ÚºÍ¿Ø¼þµÄ¹¹Ôì
+		 * çª—å£å’ŒæŽ§ä»¶çš„æž„é€ 
 		 * @throws Exception
 		 */
 		public Window() throws Exception{
@@ -53,27 +53,27 @@ public class Window extends JFrame implements MouseListener,MouseMotionListener{
 			lbTime=new JLabel();
 			
 			
-			btOpen=new JButton("´ò¿ª");//(imgNormal,imgEnter,imgPress);
+			btOpen=new JButton("æ‰“å¼€");//(imgNormal,imgEnter,imgPress);
 			btOpen.setIcon(Resource.imgNormal);
 			btOpen.setRolloverIcon(Resource.imgEnter);
 			btOpen.setPressedIcon(Resource.imgPress);
 			//btOpen.set
-			btRestart=new JButton("ÖØÖÃ");
+			btRestart=new JButton("é‡ç½®");
 			btRestart.setIcon(Resource.imgNormal);
 			btRestart.setRolloverIcon(Resource.imgEnter);
 			btRestart.setPressedIcon(Resource.imgPress);
 			
-			btAi=new JButton("×Ô¶¯");
+			btAi=new JButton("è‡ªåŠ¨");
 			btAi.setIcon(Resource.imgNormal);
 			btAi.setRolloverIcon(Resource.imgEnter);
 			btAi.setPressedIcon(Resource.imgPress);
 			
-			btExit=new JButton("ÍË³ö");
+			btExit=new JButton("é€€å‡º");
 			btExit.setIcon(Resource.imgNormal);
 			btExit.setRolloverIcon(Resource.imgEnter);
 			btExit.setPressedIcon(Resource.imgPress);
 			
-			btNext=new JButton("ÏÂÒ»¸ö");
+			btNext=new JButton("ä¸‹ä¸€ä¸ª");
 			btNext.setIcon(Resource.imgNormal);
 			btNext.setRolloverIcon(Resource.imgEnter);
 			btNext.setPressedIcon(Resource.imgPress);
@@ -81,7 +81,7 @@ public class Window extends JFrame implements MouseListener,MouseMotionListener{
 			
 		//	UIManager.put("Button.disabledText", Color.BLACK);
 			
-			//²ÉÓÃ¾ø¶Ô²¼¾Ö
+			//é‡‡ç”¨ç»å¯¹å¸ƒå±€
 			getContentPane().setLayout(new BorderLayout(0, 0));
 			getContentPane().add(pnMain);
 			pnMain.setLayout(null);
@@ -142,13 +142,13 @@ public class Window extends JFrame implements MouseListener,MouseMotionListener{
 		}
 		
 		/**
-		 * ´°¿Ú¡¢¿Ø¼þµ÷Õû
+		 * çª—å£ã€æŽ§ä»¶è°ƒæ•´
 		 */
 		public void adjust(){
-			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);	//¹Ø±Õ´°¿ÚÔòÍË³ö
-			this.setResizable(false);	//·ÀÖ¹µ÷Õû´óÐ¡
-			this.setUndecorated(true);	//È¥µô±êÌâÀ¸
-			//ÒÔÏÂÊÇÒ»Ð©´óÐ¡Î»ÖÃµ÷Õû
+			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);	//å…³é—­çª—å£åˆ™é€€å‡º
+			this.setResizable(false);	//é˜²æ­¢è°ƒæ•´å¤§å°
+			this.setUndecorated(true);	//åŽ»æŽ‰æ ‡é¢˜æ 
+			//ä»¥ä¸‹æ˜¯ä¸€äº›å¤§å°ä½ç½®è°ƒæ•´
 			this.setSize(wndWidth, wndHeight);
 			final double consoleX=0.75;
 			final double buttonW=0.2;
@@ -157,23 +157,23 @@ public class Window extends JFrame implements MouseListener,MouseMotionListener{
 			final double labelH=buttonH;
 			this.setLocation(100,100);
 			
-			Font fnt=new Font("ºÚÌå", Font.PLAIN, 34);
+			Font fnt=new Font("é»‘ä½“", Font.PLAIN, 34);
 			pnPerform.setLocation((int)(0.1*wndWidth), (int)(0.1*wndHeight));
 			pnPerform.setSize	((int)(0.6*wndWidth), (int)(0.8*wndHeight));
 			
 			lbInfo.setLocation((int)(consoleX*wndWidth), (int)(0.1*wndHeight));
 			lbInfo.setSize	((int)(labelW*wndWidth), (int)(labelH*wndHeight));
-			lbInfo.setFont(new Font("ºÚÌå",Font.PLAIN,24));
+			lbInfo.setFont(new Font("é»‘ä½“",Font.PLAIN,24));
 			//lbInfo.setText("Test\ntest");
 			
 			lbAllNum.setLocation((int)(consoleX*wndWidth), (int)(0.2*wndHeight));
 			lbAllNum.setSize	((int)(labelW*wndWidth), (int)(labelH*wndHeight));
-			lbAllNum.setFont(new Font("ºÚÌå",Font.PLAIN,24));
+			lbAllNum.setFont(new Font("é»‘ä½“",Font.PLAIN,24));
 			//lbAllNum.setText("Test\ntest");
 			
 			lbTime.setLocation((int)(consoleX*wndWidth), (int)(0.15*wndHeight));
 			lbTime.setSize	((int)(labelW*wndWidth), (int)(labelH*wndHeight));
-			lbTime.setFont(new Font("ºÚÌå",Font.PLAIN,24));
+			lbTime.setFont(new Font("é»‘ä½“",Font.PLAIN,24));
 			//lbTime.setText("Test\ntest");
 			
 			btNext.setLocation((int)(consoleX*wndWidth), (int)(0.32*wndHeight));
@@ -205,20 +205,20 @@ public class Window extends JFrame implements MouseListener,MouseMotionListener{
 			
 		}
 		/**
-		 * ¸üÐÂ¼¸¸öLabelµÄÏÔÊ¾ÄÚÈÝ
-		 * @param solutionNum½â¾ö·½°¸¸öÊý
-		 * @param currentSolutionµ±Ç°ÐòºÅ
-		 * @param totleTimeËùÓÃÊ±¼ä
+		 * æ›´æ–°å‡ ä¸ªLabelçš„æ˜¾ç¤ºå†…å®¹
+		 * @param solutionNumè§£å†³æ–¹æ¡ˆä¸ªæ•°
+		 * @param currentSolutionå½“å‰åºå·
+		 * @param totleTimeæ‰€ç”¨æ—¶é—´
 		 */
 		public void updateInfo(int solutionNum,int currentSolution, long totleTime){
-			lbInfo.setText(new String("×ÜÊý:")+Integer.toString(solutionNum));
-			lbAllNum.setText(new String("µ±Ç°:")+Integer.toString(currentSolution+1));
+			lbInfo.setText(new String("æ€»æ•°:")+Integer.toString(solutionNum));
+			lbAllNum.setText(new String("å½“å‰:")+Integer.toString(currentSolution+1));
 			if(solutionNum>0 && solutionNum>currentSolution+1)
 				this.btNext.setVisible(true);
 			else
 				this.btNext.setVisible(false);
 			if(currentSolution==0)
-				this.lbTime.setText("ÓÃÊ±:"+totleTime+"ºÁÃë");
+				this.lbTime.setText("ç”¨æ—¶:"+totleTime+"æ¯«ç§’");
 			else
 				this.lbTime.setText("");
 		}
@@ -229,13 +229,13 @@ public class Window extends JFrame implements MouseListener,MouseMotionListener{
 			btNext.setVisible(false);
 		}
 		/**
-		 * ¸ù¾ÝÊý¾Ý¸üÐÂ´°¿Ú
-		 * @param matrix Ð¡¸ñÊý×Ö¾ØÕó
-		 * @param score ·ÖÊý
+		 * æ ¹æ®æ•°æ®æ›´æ–°çª—å£
+		 * @param matrix å°æ ¼æ•°å­—çŸ©é˜µ
+		 * @param score åˆ†æ•°
 		 */
 		public void refresh(int[][] matrix,int score){
 		/*	((PerformPanel) pnPerform).setMatrix(matrix);
-			lbScore.setText("·ÖÊý:"+Integer.toString(score));
+			lbScore.setText("åˆ†æ•°:"+Integer.toString(score));
 			pnPerform.repaint();*/
 		}
 
@@ -250,13 +250,13 @@ public class Window extends JFrame implements MouseListener,MouseMotionListener{
 		public void mouseExited(MouseEvent e) {
 		}
 		/**
-		 * ÓÃÓÚÊó±êÍÏ×§£¬ÇëºöÂÔ
+		 * ç”¨äºŽé¼ æ ‡æ‹–æ‹½ï¼Œè¯·å¿½ç•¥
 		 */
 		private Point downPoint;
-		private boolean drag=false; 	//´°¿ÚÍÏ×§
-		private boolean action=false;//Êó±êÒÆ¶¯¶¯×÷
+		private boolean drag=false; 	//çª—å£æ‹–æ‹½
+		private boolean action=false;//é¼ æ ‡ç§»åŠ¨åŠ¨ä½œ
 		/**
-		 * µ±Êó±êÔÚ¾ØÕó¿òÊ±£¬ÊµÏÖÊó±ê¶¯×÷ÒÆ¶¯£¬·ñÔòÊµÏÖÍÏ×§
+		 * å½“é¼ æ ‡åœ¨çŸ©é˜µæ¡†æ—¶ï¼Œå®žçŽ°é¼ æ ‡åŠ¨ä½œç§»åŠ¨ï¼Œå¦åˆ™å®žçŽ°æ‹–æ‹½
 		 */
 		@Override
 		public void mousePressed(MouseEvent e) {
@@ -278,7 +278,7 @@ public class Window extends JFrame implements MouseListener,MouseMotionListener{
 		@Override
 		public void mouseDragged(MouseEvent e) {
 			/**
-			 * ÊµÏÖÊó±êÍÏ×§
+			 * å®žçŽ°é¼ æ ‡æ‹–æ‹½
 			 */
 			Point p = this.getLocation();
 			if(drag){
@@ -286,11 +286,11 @@ public class Window extends JFrame implements MouseListener,MouseMotionListener{
 					
 			}else if(action && e.getPoint().distance(downPoint.x,downPoint.y)>30){
 				/**
-				 * ÊµÏÖ¶¯×÷
+				 * å®žçŽ°åŠ¨ä½œ
 				 */
 				int dx=e.getX()-downPoint.x;
 				int dy=e.getY()-downPoint.y;
-				if(Math.abs(dx)>Math.abs(dy)){//±È½ÏË®Æ½ºÍ´¹Ö±ÒÆ¶¯·ù¶È
+				if(Math.abs(dx)>Math.abs(dy)){//æ¯”è¾ƒæ°´å¹³å’Œåž‚ç›´ç§»åŠ¨å¹…åº¦
 				/*	if(dx<0)
 						Game.theGame.moveLeft();
 					else 

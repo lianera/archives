@@ -4,7 +4,7 @@ import util.SeqList;
 import core.Element;
 
 /**
- * ÓÃÀ´ÑĞ¾¿·ÅÖÃ2»ò4µÄ¾ØÕó
+ * ç”¨æ¥ç ”ç©¶æ”¾ç½®2æˆ–4çš„çŸ©é˜µ
  * @author duan
  *
  */
@@ -23,7 +23,7 @@ public class AiPutMatrix extends AiMatrix{
 		curBlankId=0;
 		blanksX=new SeqList();
 		blanksY=new SeqList();
-		//°Ñ¿ÕÔªËØ¼ÓÈëË³Ğò±íÖĞ
+		//æŠŠç©ºå…ƒç´ åŠ å…¥é¡ºåºè¡¨ä¸­
 		for(int i=0;i<Height;i++){
 			for(int j=0;j<Width;j++){
 				if(elems[i][j].empty()){
@@ -37,7 +37,7 @@ public class AiPutMatrix extends AiMatrix{
 		curNum=2;
 	}
 	/**
-	 * »ñµÃ·ÅÖÃµÄÏÂÒ»²½
+	 * è·å¾—æ”¾ç½®çš„ä¸‹ä¸€æ­¥
 	 */
 	@Override
 	AiMatrix getNextChild() {

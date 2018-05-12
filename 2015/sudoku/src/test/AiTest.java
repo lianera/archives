@@ -11,13 +11,13 @@ public class AiTest {
 		Game.init();;
 		if(Game.loadFromFile()){
 			Producer p=new Producer();
-			System.out.println("²éÕÒÖĞ...");
-			long startTime=System.currentTimeMillis();   //»ñÈ¡¿ªÊ¼Ê±¼ä
+			System.out.println("æŸ¥æ‰¾ä¸­...");
+			long startTime=System.currentTimeMillis();   //è·å–å¼€å§‹æ—¶é—´
 			p.Produce(Game.matrix);
-			long endTime=System.currentTimeMillis(); //»ñÈ¡½áÊøÊ±¼ä
-			System.out.println("²éÕÒ½áÊø!");
+			long endTime=System.currentTimeMillis(); //è·å–ç»“æŸæ—¶é—´
+			System.out.println("æŸ¥æ‰¾ç»“æŸ!");
 			System.out.println(p);
-			System.out.println("ËùÓÃÊ±¼ä£º "+(endTime-startTime)+"ms");
+			System.out.println("æ‰€ç”¨æ—¶é—´ï¼š "+(endTime-startTime)+"ms");
 		}
 	}	
 }

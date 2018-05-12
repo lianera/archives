@@ -7,7 +7,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 /**
- * Æ¯ÁÁµÄ°´Å¥
+ * æ¼‚äº®çš„æŒ‰é’®
  * @author duan
  * @version 1.0
  */
@@ -18,15 +18,15 @@ public class ImageButton extends JButton{
 	 */
 	private static final long serialVersionUID = -1575526908844025067L;
 	/**
-	 * Õı³£Í¼Ïñ
+	 * æ­£å¸¸å›¾åƒ
 	 */
 	protected Image normalImg;
 	/**
-	 * Êó±êÍ£ÁôÏÔÊ¾Í¼Ïñ
+	 * é¼ æ ‡åœç•™æ˜¾ç¤ºå›¾åƒ
 	 */
 	protected Image mouseImg;
 	/**
-	 * Êó±êµã»÷ÏÔÊ¾Í¼Ïñ
+	 * é¼ æ ‡ç‚¹å‡»æ˜¾ç¤ºå›¾åƒ
 	 */
 	protected Image downImg;
 	private enum ButtonState{

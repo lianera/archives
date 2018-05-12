@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import core.Game;
 
 /**
- * ¾ØÕóÃæ°å×¨ÓÃÀà
+ * çŸ©é˜µé¢æ¿ä¸“ç”¨ç±»
  * @author duan
  * @version 1.1
  */
@@ -22,9 +22,9 @@ public class PerformPanel extends ImagePanel implements ActionListener{
 	private static final long serialVersionUID = -3683914630705948513L;
 	private GridButton[][] butMatrix;
 	/**
-	 * ÒÔÍ¼Æ¬ÎÄ¼şÃûµÄ·½Ê½³õÊ¼»¯
-	 * @param backFile ±³¾°Í¼Æ¬
-	 * @param tileFiles Ğ¡¸ñÍ¼Æ¬
+	 * ä»¥å›¾ç‰‡æ–‡ä»¶åçš„æ–¹å¼åˆå§‹åŒ–
+	 * @param backFile èƒŒæ™¯å›¾ç‰‡
+	 * @param tileFiles å°æ ¼å›¾ç‰‡
 	 * @throws Exception 
 	 */
 	public PerformPanel(String backFile){
@@ -56,8 +56,8 @@ public class PerformPanel extends ImagePanel implements ActionListener{
 		updateMatrix(null);		
 	}
 	/**
-	 * ¸üĞÂ¾ØÕóÃæ°åµÄÊı¾İ
-	 * @param m ×¢Òâ´óĞ¡ÒªÒ»ÖÂ
+	 * æ›´æ–°çŸ©é˜µé¢æ¿çš„æ•°æ®
+	 * @param m æ³¨æ„å¤§å°è¦ä¸€è‡´
 	 */
 	public void updateMatrix(int[][] m){
 		if(m==null)
@@ -71,7 +71,7 @@ public class PerformPanel extends ImagePanel implements ActionListener{
 		}
 	}
 	/**
-	 * ´¦ÀíÑ¡Ôñ°´Å¥ÊÂ¼ş
+	 * å¤„ç†é€‰æ‹©æŒ‰é’®äº‹ä»¶
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -97,7 +97,7 @@ public class PerformPanel extends ImagePanel implements ActionListener{
 		}
 	}
 	/**
-	 * ÉèÖÃÌâÄ¿µÄ³õÊ¼×´Ì¬£¬ÓÃÓÚ·ÀÖ¹±»Íæ¼Ò¸ü¸Ä
+	 * è®¾ç½®é¢˜ç›®çš„åˆå§‹çŠ¶æ€ï¼Œç”¨äºé˜²æ­¢è¢«ç©å®¶æ›´æ”¹
 	 * @param ableMatrix
 	 */
 	public void setOrigin(int[][] ableMatrix){

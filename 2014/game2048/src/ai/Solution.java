@@ -3,7 +3,7 @@ package ai;
 import core.Direction;
 
 /**
- * AIÀà£¬ÓÃÀ´²úÉú²½Öè
+ * AIç±»ï¼Œç”¨æ¥äº§ç”Ÿæ­¥éª¤
  * @author duan
  * @version 1.1
  */
@@ -21,8 +21,8 @@ public class Solution {
 	}
 	
 	/**
-	 * alpha beta µİ¹éËã·¨£¬ÒÆ¶¯Ê±ÕÒ×î´óÖµ£¬Ëæ»ú·ÅÖÃ¿¼ÂÇ×îĞ¡Öµ
-	 * @param depth ËÑË÷Éî¶È
+	 * alpha beta é€’å½’ç®—æ³•ï¼Œç§»åŠ¨æ—¶æ‰¾æœ€å¤§å€¼ï¼Œéšæœºæ”¾ç½®è€ƒè™‘æœ€å°å€¼
+	 * @param depth æœç´¢æ·±åº¦
 	 * @param alpha
 	 * @param beta
 	 * @return

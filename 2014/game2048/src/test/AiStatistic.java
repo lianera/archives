@@ -7,7 +7,7 @@ import core.Direction;
 import core.Game;
 
 /**
- * ¶ÔÊı¾İ½øĞĞÍ³¼Æ
+ * å¯¹æ•°æ®è¿›è¡Œç»Ÿè®¡
  * @author duan
  *
  */
@@ -15,7 +15,7 @@ public class AiStatistic {
 	public static final int Times=100;
 	public static void main(String[] args){
 		/**
-		 * ×ÜµÄ·ÖÊı¡¢×ÜµÄ²½Êı¡¢¿Õ¸ñÊı¡¢×î´óÊıÀëÖĞĞÄµÄ¾àÀë¡¢ÏàÁÚµÄÊıÏà²îÔ½Ğ¡Ô½ºÃ
+		 * æ€»çš„åˆ†æ•°ã€æ€»çš„æ­¥æ•°ã€ç©ºæ ¼æ•°ã€æœ€å¤§æ•°ç¦»ä¸­å¿ƒçš„è·ç¦»ã€ç›¸é‚»çš„æ•°ç›¸å·®è¶Šå°è¶Šå¥½
 		 */
 		//AiMatrix.setWeights(2.0, 0.0, 2.0, 1.0, -2.0);
     	int maxScore=0;
@@ -26,11 +26,11 @@ public class AiStatistic {
     	int num8192=0;
     	int num16384=0;
     	int stepNum=0;
-    	System.out.println("¿ªÊ¼ÔËĞĞ¡­¡­");
+    	System.out.println("å¼€å§‹è¿è¡Œâ€¦â€¦");
     	long startMili=System.currentTimeMillis();
     	for(int i=0;i<Times;i++){
     		/**
-    		 * Ò»ÏÂÊÇÒ»´ÎÍêÕûµÄAIÓÎÏ·¹ı³Ì£¬Ö®¼ÇÂ¼×îÖÕ·ÖÊı
+    		 * ä¸€ä¸‹æ˜¯ä¸€æ¬¡å®Œæ•´çš„AIæ¸¸æˆè¿‡ç¨‹ï¼Œä¹‹è®°å½•æœ€ç»ˆåˆ†æ•°
     		 */
         	Game game=new Game(false);
         	Solution sl=new Solution();
@@ -52,8 +52,8 @@ public class AiStatistic {
 	    				break;
 	    		}
 	    	}
-	    	System.out.println("ÒÑÔËĞĞ"+(i+1)+"¾Ö");
-	    	//Ò»´ÎÓÎÏ·½áÊø
+	    	System.out.println("å·²è¿è¡Œ"+(i+1)+"å±€");
+	    	//ä¸€æ¬¡æ¸¸æˆç»“æŸ
 	    	int s=game.getScore();
 	    	avgScore+=s;
 	    	if(s>maxScore)
@@ -69,17 +69,17 @@ public class AiStatistic {
 	    	if(game.getMatrix().getMax()==16384)
 	    		num16384++;	    	
     	}
-    	//È«²¿½áÊø
+    	//å…¨éƒ¨ç»“æŸ
     	long endMili=System.currentTimeMillis();
     	long avgMili=(endMili-startMili)/stepNum;
     	avgScore/=Times;
-    	System.out.println("×î¸ß·Ö:"+maxScore);
-    	System.out.println("×îµÍ·Ö:"+minScore);
-    	System.out.println("Æ½¾ù·Ö:"+avgScore);
-    	System.out.println("³öÏÖ2048´ÎÊı:"+num2048);
-    	System.out.println("³öÏÖ4096´ÎÊı:"+num4096);
-    	System.out.println("³öÏÖ8192´ÎÊı:"+num8192);
-    	System.out.println("³öÏÖ16384´ÎÊı:"+num16384);
-    	System.out.println("Æ½¾ùÃ¿²½¾ö²ßÊ±¼ä:"+avgMili+"(ºÁÃë)");
+    	System.out.println("æœ€é«˜åˆ†:"+maxScore);
+    	System.out.println("æœ€ä½åˆ†:"+minScore);
+    	System.out.println("å¹³å‡åˆ†:"+avgScore);
+    	System.out.println("å‡ºç°2048æ¬¡æ•°:"+num2048);
+    	System.out.println("å‡ºç°4096æ¬¡æ•°:"+num4096);
+    	System.out.println("å‡ºç°8192æ¬¡æ•°:"+num8192);
+    	System.out.println("å‡ºç°16384æ¬¡æ•°:"+num16384);
+    	System.out.println("å¹³å‡æ¯æ­¥å†³ç­–æ—¶é—´:"+avgMili+"(æ¯«ç§’)");
 	}
 }

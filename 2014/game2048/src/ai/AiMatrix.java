@@ -5,13 +5,13 @@ import core.Element;
 import core.Matrix;
 
 /**
- * ÓÃÓÚAIÑĞ¾¿µÄ¾ØÕó
+ * ç”¨äºAIç ”ç©¶çš„çŸ©é˜µ
  * @author duan
  * @version 1.1
  */
 abstract public class AiMatrix extends Matrix{
 	/**
-	 * »ñµÃ×î´óÖµÊÇÎªÁË¹éÒ»»¯
+	 * è·å¾—æœ€å¤§å€¼æ˜¯ä¸ºäº†å½’ä¸€åŒ–
 	 */
 	public static int maxScore=1966080;
 	public static int maxStep=(int)((Matrix.Width*Matrix.Height-1)*Matrix.Width*Matrix.Height/2);
@@ -22,26 +22,26 @@ abstract public class AiMatrix extends Matrix{
 	int score;
 	int totalStep;
 	/**
-	 * ¸÷¸öÖ¸±êµÄÈ¨Öµ
+	 * å„ä¸ªæŒ‡æ ‡çš„æƒå€¼
 	 */
 	/**
-	 * ·ÖÊı
+	 * åˆ†æ•°
 	 */
 	//private static double wtScore=0.1;
 	/**
-	 * ²½Êı
+	 * æ­¥æ•°
 	 */
 	//private static double wtStep=-0.1;
 	/**
-	 * ¿Õ¸ñÊı
+	 * ç©ºæ ¼æ•°
 	 */
 	//private static double wtBlank=0.1;
 	/**
-	 * ×î´óÊıÀëÖĞĞÄµÄ¾àÀë
+	 * æœ€å¤§æ•°ç¦»ä¸­å¿ƒçš„è·ç¦»
 	 */
 	//private static double wtDistance=0.1;
 	/**
-	 * ÏàÁÚÊı±¶Êı²îÖ®ºÍ(¿Õ¸ñ³ıÍâ)
+	 * ç›¸é‚»æ•°å€æ•°å·®ä¹‹å’Œ(ç©ºæ ¼é™¤å¤–)
 	 */
 	private static double wtDiff=-0.1;
 	public AiMatrix(Matrix m,int mScore,int mStep){
@@ -62,7 +62,7 @@ abstract public class AiMatrix extends Matrix{
 		elems[y][x]=e;
 	}	
 	/**
-	 * ÉèÖÃÈ¨Öµ
+	 * è®¾ç½®æƒå€¼
 	 * @return 
 	 */
 /*	public static void setWeights(double weightScore,double weightStep,double weightBlank,double weightDistance,double weightDiff){
@@ -73,10 +73,10 @@ abstract public class AiMatrix extends Matrix{
 		wtDiff=weightDiff;
 	}*/
 	/**
-	 * ÆÀ¹Àº¯Êı
-	 * ²ßÂÔ£º
-	 * ÆÀ¹ÀÖ¸±ê£º×ÜµÄ·ÖÊı¡¢×ÜµÄ²½Êı¡¢¿Õ¸ñÊı¡¢×î´óµÄÀëÖĞĞÄµÄ¾àÀë¡¢ÏàÁÚµÄÊıÏà²îÔ½Ğ¡Ô½ºÃ
-	 * @return ÆÀ¹ÀÖµ
+	 * è¯„ä¼°å‡½æ•°
+	 * ç­–ç•¥ï¼š
+	 * è¯„ä¼°æŒ‡æ ‡ï¼šæ€»çš„åˆ†æ•°ã€æ€»çš„æ­¥æ•°ã€ç©ºæ ¼æ•°ã€æœ€å¤§çš„ç¦»ä¸­å¿ƒçš„è·ç¦»ã€ç›¸é‚»çš„æ•°ç›¸å·®è¶Šå°è¶Šå¥½
+	 * @return è¯„ä¼°å€¼
 	 */
 	public double fitness(){
 		if(dead())
@@ -85,14 +85,14 @@ abstract public class AiMatrix extends Matrix{
 		int[][] m=this.toIntMatrix();
 		int max=0;
 		int maxX = 0,maxY = 0;		
-		int maxValue=0;		//×î´óÖµ
-		int blankNum=0;		//¿Õ¸ñÊı
-		double smoothness=0;	//Æ½»¬¶È
-		double monotonicity=0;	//µ¥µ÷ĞÔ
-		double[] diffDir=new double[allDir.length];//¸÷¸ö·½ÏòÉÏµÄÏàÁÚµ¥Ôª±¶Êı²îÖµ
+		int maxValue=0;		//æœ€å¤§å€¼
+		int blankNum=0;		//ç©ºæ ¼æ•°
+		double smoothness=0;	//å¹³æ»‘åº¦
+		double monotonicity=0;	//å•è°ƒæ€§
+		double[] diffDir=new double[allDir.length];//å„ä¸ªæ–¹å‘ä¸Šçš„ç›¸é‚»å•å…ƒå€æ•°å·®å€¼
 		for(int i=0;i<Matrix.Height;i++){
 			for(int j=0;j<Matrix.Width;j++){
-				//ÕÒµ½×î´óµÄÊı
+				//æ‰¾åˆ°æœ€å¤§çš„æ•°
 				if(m[i][j]>max){
 					max=m[i][j];
 					maxX=j;
@@ -102,17 +102,17 @@ abstract public class AiMatrix extends Matrix{
 					maxValue=m[i][j];
 				}
 				if(m[i][j]==0){
-					blankNum++;//¿Õ¸ñÊı
+					blankNum++;//ç©ºæ ¼æ•°
 				}else{
 					double logv=Math.log(m[i][j])/Math.log(2);
-					//Æ½»¬¶È
+					//å¹³æ»‘åº¦
 					for(Direction d:allDir){
 						Element e=neigbor(d,j,i);
 						if(e!=null){
 							smoothness-=Math.abs(logv-Math.log(e.getValue())/Math.log(2));
 						}
 					}
-					//µ¥µ÷ĞÔ
+					//å•è°ƒæ€§
 					for(int k=0;k<allDir.length;k++){
 						Element e=neigbor(allDir[k],j,i);
 						if(e!=null){
@@ -129,16 +129,16 @@ abstract public class AiMatrix extends Matrix{
 				(maxY-(Matrix.Height-1)/2.0)*(maxY-(Matrix.Height-1)/2.0);		
 		
 		double blanks=Math.log(blankNum)/Math.log(2);
-		//È«¾Öµ¥µ÷ĞÔÎªËÄ¸ö·½ÏòÉÏµ¥µ÷ĞÔµÄ×î´óÖµ
+		//å…¨å±€å•è°ƒæ€§ä¸ºå››ä¸ªæ–¹å‘ä¸Šå•è°ƒæ€§çš„æœ€å¤§å€¼
 		monotonicity=Math.max(diffDir[0],diffDir[2])+Math.max(diffDir[1],diffDir[3]);
-		// ÆÀ¹ÀÖµÎª¸÷¸ö Ö¸±êXÈ¨ÖµµÄÆ½¾ùºÍ
+		// è¯„ä¼°å€¼ä¸ºå„ä¸ª æŒ‡æ ‡Xæƒå€¼çš„å¹³å‡å’Œ
 		double f=1.0*maxValue+0.1*smoothness+2.5*blanks+1.5*monotonicity+2.0*maxNumDistance;
 		//System.out.println(max);
 		return -f;
 	}	
 	
 	/**
-	 * ÕÒµ½Ö¸¶¨·½Ïò×î½üµÄ·Ç¿Õµ¥Ôª
+	 * æ‰¾åˆ°æŒ‡å®šæ–¹å‘æœ€è¿‘çš„éç©ºå•å…ƒ
 	 */
 	Element neigbor(Direction d,int x,int y){
 		switch(d){

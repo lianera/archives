@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.JPanel;
 /**
- * 这只是一个带图片的Panel!
+ * 杩欏彧鏄竴涓甫鍥剧墖鐨凱anel!
  * @author duan
  *
  */
@@ -18,7 +18,7 @@ public class ImagePanel extends JPanel{
 		img=image;
 	}
 	/**
-	 * 从文件中加载图片
+	 * 浠庢枃浠朵腑鍔犺浇鍥剧墖
 	 * @param file
 	 */
 	public ImagePanel(String file){
@@ -26,7 +26,7 @@ public class ImagePanel extends JPanel{
 		img=Resource.loadImage(file);
 	}
 	/**
-	 * 重写绘图函数，在绘图时绘制背景图
+	 * 閲嶅啓缁樺浘鍑芥暟锛屽湪缁樺浘鏃剁粯鍒惰儗鏅浘
 	 */
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);

@@ -20,10 +20,10 @@ public class NumBoard extends JDialog implements ActionListener{
 	private JButton[] buttons=null;
 	public NumBoard(Frame fr,int x,int y){
 		super(fr,"Number board",true);
-		panel=new ImagePanel("res/panel.png");
-		ImageIcon imgGridNormal=new ImageIcon("res/e1.png");
-		ImageIcon imgGridEnter=new ImageIcon("res/e2.png");
-		ImageIcon imgGridPress=new ImageIcon("res/e3.png");
+		panel=new ImagePanel("/panel.png");
+		ImageIcon imgGridNormal=Resource.loadImageIcon("/e1.png");
+		ImageIcon imgGridEnter=Resource.loadImageIcon("/e2.png");
+		ImageIcon imgGridPress=Resource.loadImageIcon("/e3.png");
 		Font fnt=new Font("Arial black", Font.PLAIN, 32);
 		buttons=new JButton[9];
 		panel.setLayout(new GridLayout(3,3,0,0));
@@ -43,13 +43,13 @@ public class NumBoard extends JDialog implements ActionListener{
 		this.add(panel);
 		this.setSize(180,180);
 		this.setLocation(x,y);
-		this.setResizable(false);	//·ÀÖ¹µ÷Õû´óĞ¡
-		this.setUndecorated(true);	//È¥µô±êÌâÀ¸		
+		this.setResizable(false);	//é˜²æ­¢è°ƒæ•´å¤§å°
+		this.setUndecorated(true);	//å»æ‰æ ‡é¢˜æ 		
 		this.setVisible(true);
 	}
 	/**
-	 * »ñµÃÓÃ»§Ñ¡ÔñµÄÊı×Ö
-	 * @return Ñ¡ÔñµÄÊı×Ö
+	 * è·å¾—ç”¨æˆ·é€‰æ‹©çš„æ•°å­—
+	 * @return é€‰æ‹©çš„æ•°å­—
 	 */
 	public int getNumber(){
 		return number;

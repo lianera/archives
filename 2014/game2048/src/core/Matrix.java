@@ -5,7 +5,7 @@ import java.util.Random;
 import util.SeqList;
 
 /**
- * ¾ØÕóÀà£¬ÄÜ¹»½øĞĞÒÆÎ»ºÏ²¢²Ù×÷ÒÔ¼°¹æÔò¼ì²é¡£
+ * çŸ©é˜µç±»ï¼Œèƒ½å¤Ÿè¿›è¡Œç§»ä½åˆå¹¶æ“ä½œä»¥åŠè§„åˆ™æ£€æŸ¥ã€‚
  * @author duan
  * @version 2.0
  */
@@ -15,28 +15,28 @@ public class Matrix {
 	protected Element[][] elems;
 	private static Random rand=new Random();
 	/**
-	 * Ä¬ÈÏ¹¹Ôìº¯Êı³õÊ¼»¯ÎªÓÎÏ·³õÊ¼×´Ì¬
+	 * é»˜è®¤æ„é€ å‡½æ•°åˆå§‹åŒ–ä¸ºæ¸¸æˆåˆå§‹çŠ¶æ€
 	 */
 	public Matrix(){
 		elems=new Element[Height][Width];
-		//³õÊ¼»¯
+		//åˆå§‹åŒ–
 		for(int i=0;i<Height;i++){
 			for(int j=0;j<Width;j++){
 				elems[i][j]=new Element(0);
 			}
 		}
-		//Ëæ»ú²úÉúÁ½¸öÔªËØ
+		//éšæœºäº§ç”Ÿä¸¤ä¸ªå…ƒç´ 
 		putRandElement();
 		putRandElement();
 
 	}
 	/**
-	 * ¸´ÖÆ¹¹Ôìº¯Êı£¨²»²úÉúÔªËØ£©
+	 * å¤åˆ¶æ„é€ å‡½æ•°ï¼ˆä¸äº§ç”Ÿå…ƒç´ ï¼‰
 	 * @param m
 	 */
 	public Matrix(Matrix m){
 		elems=new Element[Height][Width];
-		//³õÊ¼»¯
+		//åˆå§‹åŒ–
 		for(int i=0;i<Height;i++){
 			for(int j=0;j<Width;j++){
 				elems[i][j]=new Element(m.elems[i][j]);
@@ -44,12 +44,12 @@ public class Matrix {
 		}		
 	}
 	/**
-	 * ÔÚ¿ÕÈ±´¦²úÉúÒ»¸ö2»ò4µÄËæ»úÊı
-	 * @return ·µ»Ø1£º³É¹¦¡£·µ»Ø0£ºÃ»ÓĞ¿ÕÔªËØ¡£
+	 * åœ¨ç©ºç¼ºå¤„äº§ç”Ÿä¸€ä¸ª2æˆ–4çš„éšæœºæ•°
+	 * @return è¿”å›1ï¼šæˆåŠŸã€‚è¿”å›0ï¼šæ²¡æœ‰ç©ºå…ƒç´ ã€‚
 	 */
 	public boolean putRandElement(){	
 		SeqList blanks=new SeqList();
-		//°Ñ¿ÕÔªËØ¼ÓÈëË³Ğò±íÖĞ
+		//æŠŠç©ºå…ƒç´ åŠ å…¥é¡ºåºè¡¨ä¸­
 		for(int i=0;i<Height;i++){
 			for(int j=0;j<Width;j++){
 				if(elems[i][j].empty()){
@@ -57,27 +57,27 @@ public class Matrix {
 				}
 			}
 		}
-		if(blanks.empty())	//Ã»ÓĞ¿ÕÔªËØ
+		if(blanks.empty())	//æ²¡æœ‰ç©ºå…ƒç´ 
 			return false;
-		//´Ó±íÖĞÑ¡¶¨Ò»¸öÎ»ÖÃ
+		//ä»è¡¨ä¸­é€‰å®šä¸€ä¸ªä½ç½®
 		int pos=rand.nextInt(blanks.getSize());
-		//½«¸ÃÔªËØËæ»ú»¯
+		//å°†è¯¥å…ƒç´ éšæœºåŒ–
 		((Element) blanks.get(pos)).randomize();
 		return true;
 	}
 
 	/**
-	 * ÒÆ¶¯ÔªËØµÄº¯Êı£¬²¢¸ù¾İÓÎÏ·¹æÔò½øĞĞÔªËØºÏ²¢¡£
+	 * ç§»åŠ¨å…ƒç´ çš„å‡½æ•°ï¼Œå¹¶æ ¹æ®æ¸¸æˆè§„åˆ™è¿›è¡Œå…ƒç´ åˆå¹¶ã€‚
 	 * @param d
-	 * @return ·µ»Ø-1£¬Ôò±íÊ¾ÎªÎŞĞ§ÒÆ¶¯£¬·ñÔò·µ»Ø±¾´ÎµÃ·Ö¡£
+	 * @return è¿”å›-1ï¼Œåˆ™è¡¨ç¤ºä¸ºæ— æ•ˆç§»åŠ¨ï¼Œå¦åˆ™è¿”å›æœ¬æ¬¡å¾—åˆ†ã€‚
 	 */
 	public int move(Direction d){	
-		Element[] arr=new Element[Height];//ÓÃÀ´¸´ÖÆ´ıÒÆ¶¯ÔªËØ
+		Element[] arr=new Element[Height];//ç”¨æ¥å¤åˆ¶å¾…ç§»åŠ¨å…ƒç´ 
 		int r,score=0;
 		boolean valid=false;
 		switch(d){
 		case LEFT:
-			//¶ÔÃ¿ĞĞ½øĞĞÒÆ¶¯
+			//å¯¹æ¯è¡Œè¿›è¡Œç§»åŠ¨
 			for(int i=0;i<Height;i++){
 				r=moveLine(elems[i]);
 				if(r!=-1){
@@ -128,13 +128,13 @@ public class Matrix {
 		return -1;
 	}
 	/**
-	 * ¸ù¾İ¹æÔòÒÆ¶¯Ò»ĞĞ£¨ÁĞ£©
+	 * æ ¹æ®è§„åˆ™ç§»åŠ¨ä¸€è¡Œï¼ˆåˆ—ï¼‰
 	 * @param arr
-	 * @return ·µ»Ø-1£¬Ôò±íÊ¾ÎªÎŞĞ§ÒÆ¶¯£¬·ñÔò·µ»Ø±¾´ÎµÃ·Ö¡£
+	 * @return è¿”å›-1ï¼Œåˆ™è¡¨ç¤ºä¸ºæ— æ•ˆç§»åŠ¨ï¼Œå¦åˆ™è¿”å›æœ¬æ¬¡å¾—åˆ†ã€‚
 	 */
 	private int moveLine(Element[] arr){
-		boolean[] flag=new boolean[arr.length];	//±ê¼ÇÊÇ·ñºÏ²¢¹ı
-		for(int n=0;n<arr.length;n++)	//Çå¿Õ±ê¼Ç
+		boolean[] flag=new boolean[arr.length];	//æ ‡è®°æ˜¯å¦åˆå¹¶è¿‡
+		for(int n=0;n<arr.length;n++)	//æ¸…ç©ºæ ‡è®°
 			flag[n]=false;
 		int s=0;
 		boolean valid=false;
@@ -145,23 +145,23 @@ public class Matrix {
 			while(k>=0 && arr[k].empty())
 				k--;
 			/**
-			 * ´Ë´¦¿ÉÓÅ»¯
+			 * æ­¤å¤„å¯ä¼˜åŒ–
 			 */
-			if(k<0 || !arr[k].equals(arr[i]) || flag[k]==true){	//×îÄ©¶Ë »ò Óöµ½²»Í¬Êı×Ö  »ò Óöµ½ÏàÍ¬µÄµ«ºÏ²¢¹ı
+			if(k<0 || !arr[k].equals(arr[i]) || flag[k]==true){	//æœ€æœ«ç«¯ æˆ– é‡åˆ°ä¸åŒæ•°å­—  æˆ– é‡åˆ°ç›¸åŒçš„ä½†åˆå¹¶è¿‡
 				if(k+1!=i){
-					arr[k+1].swap(arr[i]);	//ÒÆ¶¯£¬·ÀÖ¹×ÔÉí±»Çå¿Õ£¬ËùÒÔÓÃswap
+					arr[k+1].swap(arr[i]);	//ç§»åŠ¨ï¼Œé˜²æ­¢è‡ªèº«è¢«æ¸…ç©ºï¼Œæ‰€ä»¥ç”¨swap
 					valid=true;
 				}
-			}else{	//Óöµ½ÏàµÈÊı×ÖÇÒÎ´ºÏ²¢¹ı
-				arr[k].upgrade();//ºÏ²¢
+			}else{	//é‡åˆ°ç›¸ç­‰æ•°å­—ä¸”æœªåˆå¹¶è¿‡
+				arr[k].upgrade();//åˆå¹¶
 				arr[i].clear();
-				s+=arr[k].getValue();//¼Ó·Ö
-				flag[k]=true;	//ÉèÖÃ±ê¼Ç
+				s+=arr[k].getValue();//åŠ åˆ†
+				flag[k]=true;	//è®¾ç½®æ ‡è®°
 				valid=true;
 			}
 		}
 		if(valid)
-			return s;	//·µ»Ø·ÖÊı 
+			return s;	//è¿”å›åˆ†æ•° 
 		return -1;
 	}
 	public int getMax(){
@@ -175,11 +175,11 @@ public class Matrix {
 		return max;
 	}
 	/**
-	 * ÅĞ¶ÏÊÇ·ñ¾ØÕóËÀÍö¡£
-	 * @return 1£ºËÀ£¬0£º»î£»
+	 * åˆ¤æ–­æ˜¯å¦çŸ©é˜µæ­»äº¡ã€‚
+	 * @return 1ï¼šæ­»ï¼Œ0ï¼šæ´»ï¼›
 	 */
 	public boolean dead(){
-		//ÅĞ¶ÏÊÇ·ñÓĞÏàÁÚµÄÏàÍ¬ÔªËØ
+		//åˆ¤æ–­æ˜¯å¦æœ‰ç›¸é‚»çš„ç›¸åŒå…ƒç´ 
 		for(int i=0;i<Height;i++){
 			for(int j=0;j<Width;j++){
 				if(elems[i][j].empty())
@@ -197,8 +197,8 @@ public class Matrix {
 	
 
 	/**
-	 * ·µ»Ø¿Õ¸ñÊı
-	 * @return ¿Õ¸ñÊı
+	 * è¿”å›ç©ºæ ¼æ•°
+	 * @return ç©ºæ ¼æ•°
 	 */
 	/*
 	public int blankNum(){
@@ -214,8 +214,8 @@ public class Matrix {
 	}
 	*/
 	/**
-	 * ½«ÔªËØ¾ØÕó×ª»¯³É4x4ÕûÊı¾ØÕó
-	 * @return 4x4¶şÎ¬Êı×é
+	 * å°†å…ƒç´ çŸ©é˜µè½¬åŒ–æˆ4x4æ•´æ•°çŸ©é˜µ
+	 * @return 4x4äºŒç»´æ•°ç»„
 	 */
 	public int[][] toIntMatrix(){
 		int[][] m=new int[Height][Width];
@@ -228,7 +228,7 @@ public class Matrix {
 	}
 	
 	/**
-	 * ½«¾ØÕó×ª»¯³ÉµÄ×Ö·û´®
+	 * å°†çŸ©é˜µè½¬åŒ–æˆçš„å­—ç¬¦ä¸²
 	 */
 	public String toString(){
 		String line="-------------------------\n";

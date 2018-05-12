@@ -40,8 +40,8 @@ public class Game {
 		matrix=new Matrix();
 	}
 	/**
-	 * ´ÓÎÄ¼şÖĞ¼ÓÔØÌâÄ¿
-	 * @returnÊÇ·ñ³É¹¦
+	 * ä»æ–‡ä»¶ä¸­åŠ è½½é¢˜ç›®
+	 * @returnæ˜¯å¦æˆåŠŸ
 	 */
 	public static boolean loadFromFile(){
 		try {
@@ -56,15 +56,15 @@ public class Game {
 				return true;				
 			}
 		} catch (FileNotFoundException e) {
-			JOptionPane.showMessageDialog(null,"ÎÄ¼şÃ»ÓĞÕÒµ½£¡");
+			JOptionPane.showMessageDialog(null,"æ–‡ä»¶æ²¡æœ‰æ‰¾åˆ°ï¼");
 		} catch (Exception e) {
 			//e.printStackTrace();
-			JOptionPane.showMessageDialog(null,"ÎÄ¼ş´íÎó£¡");
+			JOptionPane.showMessageDialog(null,"æ–‡ä»¶é”™è¯¯ï¼");
 		}
 		return false;
 	}
 	/**
-	 * ÖØÖÃÓÎÏ·
+	 * é‡ç½®æ¸¸æˆ
 	 */
 	public static void reset(){
 		matrix=new Matrix();
@@ -72,18 +72,18 @@ public class Game {
 		wnd.pnPerform.setOrigin(null);
 	}
 	/**
-	 * ¿ªÊ¼ÔËĞĞÈË¹¤ÖÇÄÜ
+	 * å¼€å§‹è¿è¡Œäººå·¥æ™ºèƒ½
 	 */
 	public static void startAi(){
 		Producer p=new Producer();
 		try {
 			if(matrix.hasConflicted())
-				JOptionPane.showMessageDialog(null,"ÒÑ¾­ÓĞ´íÎóÁË£¡");
+				JOptionPane.showMessageDialog(null,"å·²ç»æœ‰é”™è¯¯äº†ï¼");
 			else{
 					
-				long startTime=System.currentTimeMillis();   //»ñÈ¡¿ªÊ¼Ê±¼ä
+				long startTime=System.currentTimeMillis();   //è·å–å¼€å§‹æ—¶é—´
 				int num=p.Produce(matrix);
-				long endTime=System.currentTimeMillis(); //»ñÈ¡½áÊøÊ±¼ä
+				long endTime=System.currentTimeMillis(); //è·å–ç»“æŸæ—¶é—´
 				long t=endTime-startTime;				
 				
 				if(num>0){
@@ -93,7 +93,7 @@ public class Game {
 					currentSolution=0;
 					applyAiSolution(currentSolution);
 				}else
-					JOptionPane.showMessageDialog(null,"ÕÒ²»µ½¿ÉĞĞµÄ½â£¡");
+					JOptionPane.showMessageDialog(null,"æ‰¾ä¸åˆ°å¯è¡Œçš„è§£ï¼");
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -102,7 +102,7 @@ public class Game {
 		
 	}
 	/**
-	 * ÇĞ»»µ½ÏÂÒ»¸ö½â
+	 * åˆ‡æ¢åˆ°ä¸‹ä¸€ä¸ªè§£
 	 */
 	public static void switchToNextSolution(){
 		currentSolution++;
