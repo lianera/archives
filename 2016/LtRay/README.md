@@ -1,12 +1,13 @@
+# LtRay 光线跟踪器
 
-LtRay
-=============
+![](LtRay.png)
 
-# Introduction #
+## 简介
 
-A simple implemention of ray tracing by using C++.
+一个用C++实现的简单光线跟踪器
 
-# Features #
+## 特性
+
 
 * Shape: sphere, cone, plane, cylinder, disk, triangle, polygon
 * Customed particial shape
@@ -22,17 +23,21 @@ A simple implemention of ray tracing by using C++.
 * Shader: phong, depth map, normal map, global spherical harmonics lighting, albedo map
 * Anti-aliasing
 
-# Samples #
+## 运行
 
-![room.png](samples/room.png)
-![sample.jpg](samples/sample.jpg)
-![bunny.png](samples/bunny.png)
-![laurana.jpg](samples/laurana.jpg)
+```
+.\ltray data\world.toml
+```
 
-# Build #
 
-Visual Studio 2013
+## 环境
 
-# Run #
+* Visual Studio 2017
+* 第三方库：opengl, glfw3
 
-`Release\ltray data\world.toml output.png`
+推荐使用vcpkg安装第三方库
+
+```
+vcpkg install opengl:x86-windows-static glfw3:x86-windows-static
+```
+

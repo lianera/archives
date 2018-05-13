@@ -30,6 +30,7 @@ private:
 
 };
 
+/*
 struct FIBITMAP;
 
 class ImageWriter{
@@ -74,6 +75,6 @@ private:
 	std::queue<CloudPoint> pointcloud_;
 	std::string filename_;
 };
-
+*/
 
 #endif

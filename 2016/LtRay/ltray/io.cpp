@@ -1,6 +1,6 @@
 #include <assert.h>
 #include <GLFW/glfw3.h>
-#include <FreeImage.h>
+//#include <FreeImage.h>
 #include <string>
 #include <cstring>
 #include <fstream>
@@ -99,6 +99,7 @@ void Canvas::WindowProc()
 	glfwTerminate();
 }
 
+/*
 int ImageWriter::count = 0;
 
 ImageWriter::ImageWriter(std::string filename, int width, int height, bool grayscale)
@@ -239,3 +240,5 @@ void PLYWriter::Write()
 	}
 	ofs_.write(&buf[0], buf.size());
 }
+
+*/

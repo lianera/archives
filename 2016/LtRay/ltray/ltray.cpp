@@ -11,11 +11,15 @@ using namespace ltray;
 
 class ResultProc{
 	Canvas* canvas_;
-	ImageWriter* imgwriter_;
-	PLYWriter* plywriter_;
+//	ImageWriter* imgwriter_;
+//	PLYWriter* plywriter_;
 public:
-	ResultProc(Canvas* canvas, ImageWriter* imgwriter, PLYWriter* plywriter)
+	/*ResultProc(Canvas* canvas, ImageWriter* imgwriter, PLYWriter* plywriter)
 		:canvas_(canvas), imgwriter_(imgwriter), plywriter_(plywriter)
+	{}*/
+
+	ResultProc(Canvas* canvas)
+		:canvas_(canvas)
 	{}
 
 	void operator()(int image_x, int image_y,
@@ -24,28 +28,32 @@ public:
 	{
 		if (canvas_)
 			canvas_->setPixel(image_x, image_y, red, green, blue);
-		if (imgwriter_)
+	/*	if (imgwriter_)
 			imgwriter_->setPixel(image_x, image_y, red, green, blue);
 		if (plywriter_)
 			plywriter_->addPoint(point_x, point_y, point_z, red, green, blue);
+			*/
 	}
 	void Done()
 	{
+		/*
 		if (imgwriter_)	imgwriter_->Write();
 		if (plywriter_) plywriter_->Write();
+		*/
 	}
 };
 
 int main(int argc, char *argv[])
 {
 	// parsing command line options
-	if (argc < 3){
-		cout << "Usage: ltray world.toml output.png [output.ply]" << endl;
+	if (argc < 2){
+		//cout << "Usage: ltray world.toml output.png [output.ply]" << endl;
+		cout << "Usage: ltray world.toml" << endl;
 		return 0;
 	}
 	string worldfile = argv[1];
-	string imgfile = argv[2];
-	string plyfile = argc > 3 ? argv[3] : "";
+	//string imgfile = argv[2];
+	//string plyfile = argc > 3 ? argv[3] : "";
 
 	try{
 		cout << "Reading world: " << worldfile << endl;
@@ -58,15 +66,16 @@ int main(int argc, char *argv[])
 
 		unique_ptr<Canvas> canvas(new Canvas(camera->pixel_nx(), camera->pixel_ny(), shader->grayscale()));
 		
-		cout << "Output image: " + imgfile << endl;
+		/*cout << "Output image: " + imgfile << endl;
 		unique_ptr<ImageWriter> imgwriter(new ImageWriter(imgfile, camera->pixel_nx(), camera->pixel_ny(), shader->grayscale()));
 		unique_ptr<PLYWriter> plywriter;
 		if (!plyfile.empty()) {
 				cout << "Output Point cloud: " + plyfile << endl;
 				plywriter.reset(new PLYWriter(plyfile));
-		}
+		}*/
 			
-		ResultProc result_proc(canvas.get(), imgwriter.get(), plywriter.get());
+		//ResultProc result_proc(canvas.get(), imgwriter.get(), plywriter.get());
+		ResultProc result_proc(canvas.get());
 		cout << "Tracing ... " << endl;
 		tracer->Trace(*scene, *camera, result_proc);
 		result_proc.Done();
