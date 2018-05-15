@@ -48,6 +48,21 @@
 
 错误处理类用来供程序抛出与捕捉程序，主要的类有Error基类、Init_Error类、Outer_Error类。通过错误处理模块，程序能够有序地处理错误。
 
+## 2018年5月16日更新
+
+将程序绘图和输入部分改成SDL2，提高绘图的效率和流畅度。（原版程序移到snake2-gdi内）
+
+使用到的第三方库：sdl2, sdl2_image, sdl2_tiff, sdl2_mixer
+
+建议使用vcpkg安装第三方库：
+
+```
+vcpkg install sdl2:x86-windows-static 
+vcpkg install sdl2-image:x86-windows-static
+vcpkg install sdl2-ttf:x86-windows-static 
+vcpkg install sdl2-mixer:x86-windows-static
+```
+
 ## 环境
 
 * Visual Studio 2017
