@@ -6,6 +6,8 @@
 
 一个用C++实现的简单光线跟踪器
 
+[详细介绍](https://lianera.github.io/2017/ltray-memo/)
+
 ## 特性
 
 

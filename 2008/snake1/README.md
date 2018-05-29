@@ -1,8 +1,6 @@
 # 贪吃蛇
 
-![](snake1.png)
-
-## 简介
+[详细介绍](https://lianera.github.io/2008/snake1/)
 
 经典的贪吃蛇小游戏。
 

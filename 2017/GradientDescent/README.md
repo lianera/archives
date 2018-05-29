@@ -9,9 +9,7 @@
 
 其中二次型的表达式为f(x)=1/2\*x'Ax - b'x + c，提供的梯度下降法的步长搜索包括精确步长和固定步长。
 
-## 技术
-
-详细细节参考[Lianera的博客](http://lianera.github.io)
+详细细节参考[Lianera的博客：梯度下降法及其实现](https://lianera.github.io/2017/gradient-descent/)
 
 ## 运行
 

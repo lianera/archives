@@ -5,7 +5,7 @@
 
 ## 简介
 
-给定环境贴图，对环境光进行采样，得到数据量很小的环境光参数。利用这些参数对场景或者模型加上环境光照，详细内容参考[Lianera的博客](http://lianera.github.io)
+给定环境贴图，对环境光进行采样，得到数据量很小的环境光参数。利用这些参数对场景或者模型加上环境光照，详细内容参考[实验篇](https://lianera.github.io/2016/sh-lighting-exp/)以及[应用篇](https://lianera.github.io/2017/sh-lighting-apply/)
 
 程序包含三个部分：
 
