@@ -30,8 +30,6 @@ private:
 
 };
 
-/*
-struct FIBITMAP;
 
 class ImageWriter{
 public:
@@ -40,7 +38,7 @@ public:
 	void setPixel(int x, int y, float r, float g, float b)
 	{
 		assert(x >= 0 && y >= 0 && x < width_ && y < height_);
-		int p = y*width_ + x;
+		int p = (height_ - y - 1)*width_ + x;
 		if (grayscale_){
 			image_buffer_[p] = r;
 		}
@@ -52,7 +50,6 @@ public:
 	}
 	void Write();
 private:
-	static int count;
 	std::string filename_;
 	int width_, height_;
 	bool grayscale_;
@@ -75,6 +72,5 @@ private:
 	std::queue<CloudPoint> pointcloud_;
 	std::string filename_;
 };
-*/
 
 #endif

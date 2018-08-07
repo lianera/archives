@@ -1,11 +1,13 @@
-#include <assert.h>
+#ifdef USING_GLFW
 #include <GLFW/glfw3.h>
-//#include <FreeImage.h>
+#endif
+#include <assert.h>
 #include <string>
 #include <cstring>
 #include <fstream>
 #include <thread> 
 #include <iostream>
+#include <sstream>
 #include <mutex>
 #include "io.h"
 
@@ -39,6 +41,8 @@ void Canvas::setPixel(int x, int y, float r, float g, float b)
 
 void Canvas::WindowProc()
 {
+#ifdef USING_GLFW
+
 	GLFWwindow* window;
 
 	// init
@@ -97,90 +101,41 @@ void Canvas::WindowProc()
 
 	}
 	glfwTerminate();
-}
 
-/*
-int ImageWriter::count = 0;
+#endif
+}
 
 ImageWriter::ImageWriter(std::string filename, int width, int height, bool grayscale)
 :filename_(filename), width_(width), height_(height), grayscale_(grayscale)
 {
 	assert(width > 0 && height > 0);
-	if (count == 0)
-		FreeImage_Initialise();
-	count++;
-	int size = grayscale_ ? width_ * height_ : width_ * height_ * 3;
+	int N = width_ * height_;
+	int size = grayscale_ ? N : N*3;
 	image_buffer_.resize(size);
-
 }
 
 ImageWriter::~ImageWriter()
 {
-	count--;
-	if (count == 0)
-		FreeImage_DeInitialise();
+	
 }
 
 void ImageWriter::Write()
 {
-	FIBITMAP* bitmap = grayscale_ ?
-		FreeImage_AllocateT(FIT_UINT16, width_, height_)
-		: FreeImage_Allocate(width_, height_, 24);
-	// get file extension
-	bool supported_ext = true;
-	FREE_IMAGE_FORMAT format = FIF_PNG;
-	string::size_type p = filename_.find_last_of('.');
-	if (p != string::npos){
-		string ext = filename_.substr(p, filename_.size() - p);
-		for (char& c : ext)
-			c = toupper(c);
-		if (ext == ".PNG")
-			format = FIF_PNG;
-		else if (ext == ".BMP")
-			format = FIF_BMP;
-		else if (ext == ".PBM")
-			format = FIF_PBM;
-		else if (ext == ".PGM")
-			format = FIF_PGM;
-		else if (ext == ".PPM")
-			format = FIF_PPM;
-		else if (ext == ".JPG" || ext == ".JPEG")
-			format = FIF_JPEG;
-		else
-			supported_ext = false;
+	ofstream ofs(filename_, ios::binary);
+	ostringstream iss;
+	string flag = grayscale_ ? "P5" : "P6";
+	iss << flag << endl;
+	iss << width_ << ' ' << height_ << endl;
+	iss << 255 << endl;
+	string header = iss.str();
+	ofs.write(header.c_str(), header.size() * sizeof(char));
+	int N = image_buffer_.size();
+	vector<unsigned char> ubuf(N);
+	for (int i = 0; i < N; i++) {
+		int t = min(max(int(image_buffer_[i] * 255.f), 0), 255);
+		ubuf[i] = unsigned char(t);
 	}
-	else{
-		supported_ext = false;
-	}
-	if (!supported_ext){
-		format = FIF_PNG;
-		cout << "unsupported image format, using .png as replacement" << endl;
-	}
-	if (grayscale_){
-		for (int j = 0; j < height_; j++) {
-			BYTE* scanline = FreeImage_GetScanLine(bitmap, j);
-			unsigned short* bits = (unsigned short*)scanline;
-			for (int i = 0; i < width_; i++) {
-				*bits = (unsigned short)max(min(int(
-					image_buffer_[j * width_ + i]), 65535), 0);
-				bits++;
-			}
-		}
-	}
-	else{
-		for (int j = 0; j < height_; j++) {
-			for (int i = 0; i < width_; i++) {
-				int p = (j * width_ + i) * 3;
-				RGBQUAD c;
-				c.rgbRed = max(min(int(image_buffer_[p] * 255), 255), 0);
-				c.rgbGreen = max(min(int(image_buffer_[p+1] * 255), 255), 0);
-				c.rgbBlue = max(min(int(image_buffer_[p+2] * 255), 255), 0);
-				FreeImage_SetPixelColor(bitmap, i, j, &c);
-			}
-		}
-	}
-
-	FreeImage_Save(format, bitmap, filename_.c_str());
+	ofs.write((char*)ubuf.data(), ubuf.size()*sizeof(unsigned char));
 }
 
 
@@ -240,5 +195,3 @@ void PLYWriter::Write()
 	}
 	ofs_.write(&buf[0], buf.size());
 }
-
-*/
