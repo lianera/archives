@@ -23,7 +23,7 @@ public class Assembly {
 				System.out.print(ins.toString()+" ");
 			} catch (Exception e) {
 				System.out.println();
-				System.out.println("µÚ"+i+"ÐÐ:"+instr+" ´íÎó:"+e.getMessage());
+				System.out.println("ç¬¬"+i+"è¡Œ:"+instr+" é”™è¯¯:"+e.getMessage());
 			}
 			
 		}

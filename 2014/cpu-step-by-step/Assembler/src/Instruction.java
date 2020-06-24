@@ -10,7 +10,7 @@ public class Instruction {
 	public Instruction(String ins) throws Exception{
 		String[] s=ins.split(" |,");
 		if(s==null)
-			throw new Exception("Óï·¨´íÎó");
+			throw new Exception("è¯­æ³•é”™è¯¯");
 		opw=new OpWord(s[0]);
 		oprs=new Operand[s.length-1];
 		for(int i=1;i<s.length;i++){
@@ -77,8 +77,8 @@ public class Instruction {
 			else if(oprs[0].isReg() && oprs[1].isReg() && !oprs[2].isReg())
 				return FORMAT.REGCON;
 			else 
-				throw new Exception("´íÎóµÄ¸ñÊ½");
-		}else if(getAddrNum()==2){	//LOAD¡¢STORE¡¢NOT¡¢MOV
+				throw new Exception("é”™è¯¯çš„æ ¼å¼");
+		}else if(getAddrNum()==2){	//LOADã€STOREã€NOTã€MOV
 			if(oprs[0].isReg() && oprs[1].isReg()){
 				if(opw.getOp().equals(OPERS.LOAD))
 					return FORMAT.RMEM;
@@ -88,15 +88,15 @@ public class Instruction {
 						opw.getOp().equals(OPERS.INC)||opw.getOp().equals(OPERS.DEC))
 					return FORMAT.TWOREG;
 				else 
-					throw new Exception("´íÎóµÄ¸ñÊ½");
+					throw new Exception("é”™è¯¯çš„æ ¼å¼");
 			}else if(oprs[0].isReg() && !oprs[1].isReg()){
 				if(opw.getOp().equals(OPERS.NOT)||opw.getOp().equals(OPERS.MOV)||
 						opw.getOp().equals(OPERS.INC)||opw.getOp().equals(OPERS.DEC))
 					return FORMAT.REGCON;
 				else 
-					throw new Exception("´íÎóµÄ¸ñÊ½");
+					throw new Exception("é”™è¯¯çš„æ ¼å¼");
 			}
-		}else if(getAddrNum()==1){//ÒÆÎ»¡¢Ìø×ª
+		}else if(getAddrNum()==1){//ç§»ä½ã€è·³è½¬
 			if((	opw.getOp().equals(OPERS.SAL)||
 					opw.getOp().equals(OPERS.SAR)||
 					opw.getOp().equals(OPERS.SHL)||
@@ -113,7 +113,7 @@ public class Instruction {
 			}
 		
 		}
-		throw new Exception("´íÎóµÄ¸ñÊ½");
+		throw new Exception("é”™è¯¯çš„æ ¼å¼");
 	}
 	
 	public String toString(){

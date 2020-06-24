@@ -45,7 +45,7 @@ class OpWord extends Word{
 				break;
 			}
 		if(!finded)
-			throw new Exception("不能识别的操作符");
+			throw new Exception("涓嶈兘璇嗗埆鐨勬搷浣滅");
 	}
 	@Override
 	public int getValue(){
@@ -64,7 +64,7 @@ class Operand extends Word{
 			val=Integer.parseInt(name.substring(1));
 			reg=true;
 			if(val>3)
-				throw new Exception("不存在这个寄存器");
+				throw new Exception("涓嶅瓨鍦ㄨ繖涓瘎瀛樺櫒");
 		}else{
 			val=Integer.parseInt(name);
 		}
